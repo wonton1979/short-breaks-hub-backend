@@ -1,8 +1,7 @@
-package dev.group2.traveldiary.travel_diary_backend.service;
+package com.shortbreakshub.service;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,12 +15,11 @@ public class CloudinaryService {
     }
 
     public String uploadImage(MultipartFile file) throws IOException {
-       String savedUrl = cloudinary
+        return cloudinary
                .uploader()
                .upload(file.getBytes(), ObjectUtils.emptyMap())
                .get("secure_url")
                .toString();
-       return savedUrl;
     }
 
     public void deleteImage(String url) throws IOException {

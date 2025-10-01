@@ -1,4 +1,3 @@
 package com.shortbreakshub.dto;
 
-public class LoginResponse {
-}
+public record LoginResponse(String token, Long userId, String email, String displayName) {}

@@ -1,8 +1,8 @@
-package seeder;
+package com.shortbreakshub.seeder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.shortbreakshub.model.ItineraryEntity;
+import com.shortbreakshub.model.Itinerary;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -27,7 +27,7 @@ public class ItinerarySeeder implements CommandLineRunner {
             ClassPathResource resource = new ClassPathResource("seed/itineraries.json");
             System.out.println("Testing Testing");
             try (InputStream in =  resource.getInputStream() ) {
-                List<ItineraryEntity> itineraries = objectMapper.readValue(in, new TypeReference<>() {
+                List<Itinerary> itineraries = objectMapper.readValue(in, new TypeReference<>() {
                 });
                 itineraryRepository.saveAll(itineraries);
             }

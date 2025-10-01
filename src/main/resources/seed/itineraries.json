@@ -1,0 +1,151 @@
+[
+  {
+    "slug": "3-day-bangkok-city-tour",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Bangkok",
+    "title": "Bangkok 3-Day City Tour",
+    "days": 3,
+    "priceFrom": 299,
+    "hero": "/src/assets/sea-bangkok.jpg",
+    "summary": "A first-timer friendly 3-day loop through Bangkok’s must-see sights.",
+    "highlights": [
+      "Grand Palace & Wat Phra Kaew",
+      "Chao Phraya Night Cruise",
+      "Chinatown Street Eats"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Old Town",
+        "summary": "Relaxed afternoon in Rattanakosin by the river.",
+        "details": "Check-in, visit Grand Palace & Wat Pho. Sunset riverside view."
+      },
+      {
+        "day": 2,
+        "title": "Temples & Cruise",
+        "summary": "Morning temple visits; evening skyline dinner cruise.",
+        "details": "Wat Arun + dinner cruise on the Chao Phraya."
+      },
+      {
+        "day": 3,
+        "title": "Markets & Departure",
+        "summary": "Explore local markets and depart.",
+        "details": "Chatuchak (weekend) or Or Tor Kor. Optional massage."
+      }
+    ]
+  },
+
+  {
+    "slug": "hanoi-halong-bay-5-days",
+    "region": "southeast-asia",
+    "country": "Vietnam",
+    "city": "Hanoi",
+    "title": "Hanoi & Halong Bay (5 Days)",
+    "days": 5,
+    "priceFrom": 480,
+    "hero": "/src/assets/Hanoi_Halong.jpg",
+    "summary": "Discover Vietnam’s capital and the iconic Halong Bay.",
+    "highlights": [
+      "Old Quarter Walk",
+      "Halong Bay Cruise",
+      "Street Food Tour"
+    ],
+    "schedule": [
+      { "day": 1, "title": "Arrival", "summary": "Check-in & Old Quarter stroll.", "details": "Bia hơi & egg coffee tasting." },
+      { "day": 2, "title": "Hanoi Classics", "summary": "Landmarks & food tour.", "details": "Temple of Literature, Hoan Kiem, evening street food." },
+      { "day": 3, "title": "Halong Embark", "summary": "Cruise & caves.", "details": "Kayaking and sunset on deck." },
+      { "day": 4, "title": "Halong Morning", "summary": "Tai chi & brunch.", "details": "Return to Hanoi; water puppet show." },
+      { "day": 5, "title": "Free & Fly", "summary": "Cafe hop & airport.", "details": "Optional museum visit before transfer." }
+    ]
+  },
+
+  {
+    "slug": "4-day-bali-ubud-seaside",
+    "region": "southeast-asia",
+    "country": "Indonesia",
+    "city": "Bali",
+    "title": "Bali: Ubud to Seaside (4 Days)",
+    "days": 4,
+    "priceFrom": 520,
+    "hero": "/assets/indonesia-bali.jpg",
+    "summary": "Rice terraces, temples, and a splash of beach time.",
+    "highlights": [
+      "Tegallalang Rice Terraces",
+      "Uluwatu Temple Sunset",
+      "Balinese Cooking Class"
+    ],
+    "schedule": [
+      { "day": 1, "title": "Ubud Vibes", "summary": "Markets & monkey forest.", "details": "Ubud Palace, Campuhan Ridge walk." },
+      { "day": 2, "title": "Temples & Class", "summary": "Culture & cuisine.", "details": "Tirta Empul, cooking class, spa." },
+      { "day": 3, "title": "South Coast", "summary": "Beach & cliffs.", "details": "Padang Padang, Uluwatu Kecak dance." },
+      { "day": 4, "title": "Chill & Depart", "summary": "Brunch & souvenirs.", "details": "Optional beach club before airport." }
+    ]
+  },
+
+  {
+    "slug": "3-day-singapore-essentials",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "Singapore Essentials (3 Days)",
+    "days": 3,
+    "priceFrom": 450,
+    "hero": "/assets/singapore.jpg",
+    "summary": "Futuristic skyline, hawker classics, and lush gardens.",
+    "highlights": [
+      "Gardens by the Bay",
+      "Marina Bay Sands Views",
+      "Hawker Centre Feast"
+    ],
+    "schedule": [
+      { "day": 1, "title": "Marina Bay", "summary": "Skylines & Supertrees.", "details": "ArtScience Museum, Spectra light show." },
+      { "day": 2, "title": "Heritage Trails", "summary": "Chinatown, Kampong Glam, Little India.", "details": "Hawker lunch: chicken rice & laksa." },
+      { "day": 3, "title": "Green City", "summary": "Botanic Gardens & Orchard.", "details": "Shopping time then airport transfer." }
+    ]
+  },
+
+  {
+    "slug": "3-day-kuala-lumpur-city-break",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "title": "Kuala Lumpur City Break (3 Days)",
+    "days": 3,
+    "priceFrom": 360,
+    "hero": "/assets/kuala-lumpur.jpg",
+    "summary": "Iconic towers, street eats, and caves.",
+    "highlights": [
+      "Petronas Twin Towers",
+      "Batu Caves",
+      "Jalan Alor Night Market"
+    ],
+    "schedule": [
+      { "day": 1, "title": "KL Core", "summary": "Towers & parks.", "details": "KLCC park walk, skybridge view." },
+      { "day": 2, "title": "Culture & Caves", "summary": "Batu & museums.", "details": "Batu Caves morning, Islamic Arts Museum." },
+      { "day": 3, "title": "Markets & Depart", "summary": "Eat & shop.", "details": "Jalan Alor food crawl; transfer." }
+    ]
+  },
+
+  {
+    "slug": "3-day-penang-heritage-food",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Penang",
+    "title": "Penang Heritage & Food (3 Days)",
+    "days": 3,
+    "priceFrom": 340,
+    "hero": "/assets/penang.jpg",
+    "summary": "Street art, colonial charm, and legendary hawker food.",
+    "highlights": [
+      "George Town Street Art",
+      "Penang Hill",
+      "Char Kway Teow & Cendol"
+    ],
+    "schedule": [
+      { "day": 1, "title": "Old Town", "summary": "Murals & mansions.", "details": "Cheong Fatt Tze Mansion, Peranakan museum." },
+      { "day": 2, "title": "Hill & Temples", "summary": "Views & culture.", "details": "Penang Hill funicular, Kek Lok Si." },
+      { "day": 3, "title": "Hawker Heaven", "summary": "Food trail & souvenirs.", "details": "Gurney Drive hawker centre; depart." }
+    ]
+  }
+]
