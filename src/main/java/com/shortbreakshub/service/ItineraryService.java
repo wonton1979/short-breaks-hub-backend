@@ -2,7 +2,10 @@ package com.shortbreakshub.service;
 
 import com.shortbreakshub.model.Itinerary;
 import com.shortbreakshub.respository.ItineraryRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,5 +38,15 @@ public class ItineraryService {
     public List<Itinerary> getByRegion(String region) {
         return repo.findItineraryEntitiesByRegion(region);
     }
+
+    @Transactional(readOnly = true)
+    public Page<Itinerary> getAllItinerariesByCustomSearch(
+            String q, String country,
+            Integer daysMin, Integer daysMax,
+            Pageable pageable
+    ) {
+        return repo.findAllItinerariesByCustomSearch(q, country, daysMin, daysMax,pageable);
+    }
+
 }
 

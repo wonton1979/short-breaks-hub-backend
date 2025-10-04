@@ -51,7 +51,6 @@ public class FavoriteController {
         return Map.of("liked", liked);
     }
 
-    @Transactional(readOnly = true)
     @GetMapping("/me/favorites")
     public ResponseEntity <Page<Itinerary>> myFavorites(
             @PageableDefault(size = 12,sort = "createdAt", direction = Sort.Direction.DESC)  Pageable pageable,

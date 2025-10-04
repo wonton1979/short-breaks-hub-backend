@@ -2,7 +2,12 @@ package com.shortbreakshub.controller;
 
 import com.shortbreakshub.model.Itinerary;
 import com.shortbreakshub.service.ItineraryService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,5 +69,18 @@ public class ItineraryController {
         }
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("/search")
+    @Transactional(readOnly = true)
+    public Page<Itinerary> search(
+            @RequestParam(required = false) String q,
+            @RequestParam(required = false) String country,
+            @RequestParam(required = false) Integer daysMin,
+            @RequestParam(required = false) Integer daysMax,
+            @PageableDefault(size = 12, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        return service.getAllItinerariesByCustomSearch(q, country, daysMin, daysMax, pageable);
+    }
+
 }
 

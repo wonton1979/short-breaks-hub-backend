@@ -25,7 +25,6 @@ public class ItinerarySeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (itineraryRepository.count() == 0) {
             ClassPathResource resource = new ClassPathResource("seed/itineraries.json");
-            System.out.println("Testing Testing");
             try (InputStream in =  resource.getInputStream() ) {
                 List<Itinerary> itineraries = objectMapper.readValue(in, new TypeReference<>() {
                 });

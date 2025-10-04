@@ -1,151 +1,1088 @@
 [
   {
-    "slug": "3-day-bangkok-city-tour",
-    "region": "southeast-asia",
-    "country": "Thailand",
-    "city": "Bangkok",
-    "title": "Bangkok 3-Day City Tour",
-    "days": 3,
-    "priceFrom": 299,
-    "hero": "/src/assets/sea-bangkok.jpg",
-    "summary": "A first-timer friendly 3-day loop through Bangkok’s must-see sights.",
-    "highlights": [
-      "Grand Palace & Wat Phra Kaew",
-      "Chao Phraya Night Cruise",
-      "Chinatown Street Eats"
-    ],
-    "schedule": [
-      {
-        "day": 1,
-        "title": "Arrival & Old Town",
-        "summary": "Relaxed afternoon in Rattanakosin by the river.",
-        "details": "Check-in, visit Grand Palace & Wat Pho. Sunset riverside view."
-      },
-      {
-        "day": 2,
-        "title": "Temples & Cruise",
-        "summary": "Morning temple visits; evening skyline dinner cruise.",
-        "details": "Wat Arun + dinner cruise on the Chao Phraya."
-      },
-      {
-        "day": 3,
-        "title": "Markets & Departure",
-        "summary": "Explore local markets and depart.",
-        "details": "Chatuchak (weekend) or Or Tor Kor. Optional massage."
-      }
-    ]
-  },
-
-  {
-    "slug": "hanoi-halong-bay-5-days",
-    "region": "southeast-asia",
-    "country": "Vietnam",
-    "city": "Hanoi",
-    "title": "Hanoi & Halong Bay (5 Days)",
-    "days": 5,
-    "priceFrom": 480,
-    "hero": "/src/assets/Hanoi_Halong.jpg",
-    "summary": "Discover Vietnam’s capital and the iconic Halong Bay.",
-    "highlights": [
-      "Old Quarter Walk",
-      "Halong Bay Cruise",
-      "Street Food Tour"
-    ],
-    "schedule": [
-      { "day": 1, "title": "Arrival", "summary": "Check-in & Old Quarter stroll.", "details": "Bia hơi & egg coffee tasting." },
-      { "day": 2, "title": "Hanoi Classics", "summary": "Landmarks & food tour.", "details": "Temple of Literature, Hoan Kiem, evening street food." },
-      { "day": 3, "title": "Halong Embark", "summary": "Cruise & caves.", "details": "Kayaking and sunset on deck." },
-      { "day": 4, "title": "Halong Morning", "summary": "Tai chi & brunch.", "details": "Return to Hanoi; water puppet show." },
-      { "day": 5, "title": "Free & Fly", "summary": "Cafe hop & airport.", "details": "Optional museum visit before transfer." }
-    ]
-  },
-
-  {
-    "slug": "4-day-bali-ubud-seaside",
-    "region": "southeast-asia",
-    "country": "Indonesia",
-    "city": "Bali",
-    "title": "Bali: Ubud to Seaside (4 Days)",
-    "days": 4,
-    "priceFrom": 520,
-    "hero": "/assets/indonesia-bali.jpg",
-    "summary": "Rice terraces, temples, and a splash of beach time.",
-    "highlights": [
-      "Tegallalang Rice Terraces",
-      "Uluwatu Temple Sunset",
-      "Balinese Cooking Class"
-    ],
-    "schedule": [
-      { "day": 1, "title": "Ubud Vibes", "summary": "Markets & monkey forest.", "details": "Ubud Palace, Campuhan Ridge walk." },
-      { "day": 2, "title": "Temples & Class", "summary": "Culture & cuisine.", "details": "Tirta Empul, cooking class, spa." },
-      { "day": 3, "title": "South Coast", "summary": "Beach & cliffs.", "details": "Padang Padang, Uluwatu Kecak dance." },
-      { "day": 4, "title": "Chill & Depart", "summary": "Brunch & souvenirs.", "details": "Optional beach club before airport." }
-    ]
-  },
-
-  {
-    "slug": "3-day-singapore-essentials",
-    "region": "southeast-asia",
-    "country": "Singapore",
-    "city": "Singapore",
-    "title": "Singapore Essentials (3 Days)",
-    "days": 3,
-    "priceFrom": 450,
-    "hero": "/assets/singapore.jpg",
-    "summary": "Futuristic skyline, hawker classics, and lush gardens.",
-    "highlights": [
-      "Gardens by the Bay",
-      "Marina Bay Sands Views",
-      "Hawker Centre Feast"
-    ],
-    "schedule": [
-      { "day": 1, "title": "Marina Bay", "summary": "Skylines & Supertrees.", "details": "ArtScience Museum, Spectra light show." },
-      { "day": 2, "title": "Heritage Trails", "summary": "Chinatown, Kampong Glam, Little India.", "details": "Hawker lunch: chicken rice & laksa." },
-      { "day": 3, "title": "Green City", "summary": "Botanic Gardens & Orchard.", "details": "Shopping time then airport transfer." }
-    ]
-  },
-
-  {
-    "slug": "3-day-kuala-lumpur-city-break",
+    "slug": "3-day-kuala-lumpur-highlights",
     "region": "southeast-asia",
     "country": "Malaysia",
     "city": "Kuala Lumpur",
-    "title": "Kuala Lumpur City Break (3 Days)",
+    "title": "Kuala Lumpur 3-Day Highlights",
     "days": 3,
-    "priceFrom": 360,
-    "hero": "/assets/kuala-lumpur.jpg",
-    "summary": "Iconic towers, street eats, and caves.",
+    "priceFrom": 250,
+    "hero": "/src/assets/malaysia/kl-towers.jpg",
+    "summary": "Discover Kuala Lumpur\u2019s iconic landmarks and cultural gems in 3 days.",
     "highlights": [
       "Petronas Twin Towers",
       "Batu Caves",
       "Jalan Alor Night Market"
     ],
     "schedule": [
-      { "day": 1, "title": "KL Core", "summary": "Towers & parks.", "details": "KLCC park walk, skybridge view." },
-      { "day": 2, "title": "Culture & Caves", "summary": "Batu & museums.", "details": "Batu Caves morning, Islamic Arts Museum." },
-      { "day": 3, "title": "Markets & Depart", "summary": "Eat & shop.", "details": "Jalan Alor food crawl; transfer." }
+      {
+        "day": 1,
+        "title": "City Icons",
+        "summary": "KLCC & Petronas Towers",
+        "details": "KLCC Park, Twin Towers Skybridge, Suria Mall."
+      },
+      {
+        "day": 2,
+        "title": "Culture & Heritage",
+        "summary": "Temples and Markets",
+        "details": "Batu Caves, Chinatown Petaling Street, Central Market."
+      },
+      {
+        "day": 3,
+        "title": "Modern Kuala Lumpur",
+        "summary": "Shopping & Food",
+        "details": "Bukit Bintang, Pavilion Mall, Jalan Alor Night Market."
+      }
     ]
   },
-
   {
-    "slug": "3-day-penang-heritage-food",
+    "slug": "4-day-penang-food-culture",
     "region": "southeast-asia",
     "country": "Malaysia",
-    "city": "Penang",
-    "title": "Penang Heritage & Food (3 Days)",
-    "days": 3,
-    "priceFrom": 340,
-    "hero": "/assets/penang.jpg",
-    "summary": "Street art, colonial charm, and legendary hawker food.",
+    "city": "George Town",
+    "title": "Penang 4-Day Food & Culture Tour",
+    "days": 4,
+    "priceFrom": 320,
+    "hero": "/src/assets/malaysia/penang-georgetown.jpg",
+    "summary": "Taste Penang\u2019s world-famous street food and explore heritage streets.",
     "highlights": [
       "George Town Street Art",
       "Penang Hill",
-      "Char Kway Teow & Cendol"
+      "Kek Lok Si Temple"
     ],
     "schedule": [
-      { "day": 1, "title": "Old Town", "summary": "Murals & mansions.", "details": "Cheong Fatt Tze Mansion, Peranakan museum." },
-      { "day": 2, "title": "Hill & Temples", "summary": "Views & culture.", "details": "Penang Hill funicular, Kek Lok Si." },
-      { "day": 3, "title": "Hawker Heaven", "summary": "Food trail & souvenirs.", "details": "Gurney Drive hawker centre; depart." }
+      {
+        "day": 1,
+        "title": "Arrival & Street Art",
+        "summary": "George Town walk",
+        "details": "Armenian Street, Little India, Clan Jetties."
+      },
+      {
+        "day": 2,
+        "title": "Foodie Day",
+        "summary": "Street food highlights",
+        "details": "Char Koay Teow, Laksa, Nasi Kandar food tour."
+      },
+      {
+        "day": 3,
+        "title": "Nature & Views",
+        "summary": "Hills & Temples",
+        "details": "Penang Hill, Kek Lok Si Temple."
+      },
+      {
+        "day": 4,
+        "title": "Markets & Beaches",
+        "summary": "Shopping & Relax",
+        "details": "Gurney Drive hawker center, Batu Ferringhi beach."
+      }
+    ]
+  },
+  {
+    "slug": "2-day-malacca-heritage",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Malacca",
+    "title": "Malacca 2-Day Heritage Escape",
+    "days": 2,
+    "priceFrom": 180,
+    "hero": "/src/assets/malaysia/malacca-river.jpg",
+    "summary": "Explore Malacca\u2019s rich colonial history and vibrant riverfront.",
+    "highlights": [
+      "A Famosa",
+      "Jonker Street",
+      "Malacca River Cruise"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "History Walk",
+        "summary": "Colonial landmarks",
+        "details": "Stadthuys, A Famosa, Christ Church."
+      },
+      {
+        "day": 2,
+        "title": "Markets & River",
+        "summary": "Jonker Street & cruise",
+        "details": "Jonker Street market, Malacca River Cruise."
+      }
+    ]
+  },
+  {
+    "slug": "3-day-langkawi-island",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Langkawi",
+    "title": "Langkawi 3-Day Island Getaway",
+    "days": 3,
+    "priceFrom": 280,
+    "hero": "/src/assets/malaysia/langkawi-beach.jpg",
+    "summary": "Relax on Langkawi\u2019s beaches and enjoy island adventures.",
+    "highlights": [
+      "Langkawi Sky Bridge",
+      "Island Hopping",
+      "Pantai Cenang Beach"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Beach Day",
+        "summary": "Pantai Cenang",
+        "details": "Beach activities, sunset by the sea."
+      },
+      {
+        "day": 2,
+        "title": "Nature & Adventure",
+        "summary": "Cable car & bridge",
+        "details": "Langkawi Cable Car, Sky Bridge, waterfall visit."
+      },
+      {
+        "day": 3,
+        "title": "Island Hopping",
+        "summary": "Island tour",
+        "details": "Pulau Dayang Bunting, snorkeling, eagle feeding."
+      }
+    ]
+  },
+  {
+    "slug": "5-day-sabah-wildlife-adventure",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Kota Kinabalu",
+    "title": "Sabah 5-Day Wildlife Adventure",
+    "days": 5,
+    "priceFrom": 450,
+    "hero": "/src/assets/malaysia/sabah-wildlife.jpg",
+    "summary": "Encounter orangutans, proboscis monkeys, and explore Borneo\u2019s rainforests.",
+    "highlights": [
+      "Kinabalu Park",
+      "Sepilok Orangutan Centre",
+      "River Safari"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & City",
+        "summary": "Kota Kinabalu city tour",
+        "details": "Waterfront, Handicraft Market."
+      },
+      {
+        "day": 2,
+        "title": "Mount Kinabalu",
+        "summary": "Nature park",
+        "details": "Kinabalu Park trekking, Poring hot springs."
+      },
+      {
+        "day": 3,
+        "title": "Sepilok Orangutans",
+        "summary": "Wildlife sanctuary",
+        "details": "Sepilok Orangutan Rehabilitation Centre."
+      },
+      {
+        "day": 4,
+        "title": "River Safari",
+        "summary": "Proboscis monkeys",
+        "details": "Kinabatangan River wildlife cruise."
+      },
+      {
+        "day": 5,
+        "title": "Departure",
+        "summary": "Souvenirs & farewell",
+        "details": "Local markets and return."
+      }
+    ]
+  },
+  {
+    "slug": "3-day-cameron-highlands-retreat",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Cameron Highlands",
+    "title": "Cameron Highlands 3-Day Retreat",
+    "days": 3,
+    "priceFrom": 230,
+    "hero": "/src/assets/malaysia/cameron-highlands.jpg",
+    "summary": "Escape to cool tea plantations and flower gardens.",
+    "highlights": [
+      "Tea Plantations",
+      "Strawberry Farms",
+      "Mossy Forest"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Farms",
+        "summary": "Strawberries & flowers",
+        "details": "Visit strawberry farms, flower gardens."
+      },
+      {
+        "day": 2,
+        "title": "Tea & Nature",
+        "summary": "Tea plantations",
+        "details": "BOH Tea plantation, scenic viewpoints."
+      },
+      {
+        "day": 3,
+        "title": "Mossy Forest",
+        "summary": "Nature trails",
+        "details": "Mossy Forest trek, butterfly farm."
+      }
+    ]
+  },
+  {
+    "slug": "4-day-ipoh-heritage-food",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Ipoh",
+    "title": "Ipoh 4-Day Heritage & Food Trail",
+    "days": 4,
+    "priceFrom": 260,
+    "hero": "/src/assets/malaysia/ipoh-heritage.jpg",
+    "summary": "Enjoy Ipoh\u2019s street art, caves, and famous white coffee.",
+    "highlights": [
+      "Kellie\u2019s Castle",
+      "Ipoh Street Art",
+      "Sam Poh Tong Cave"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Old Town Walk",
+        "summary": "Street art & coffee",
+        "details": "Concubine Lane, street murals, white coffee."
+      },
+      {
+        "day": 2,
+        "title": "Caves & Castles",
+        "summary": "Ipoh attractions",
+        "details": "Sam Poh Tong Cave, Kellie\u2019s Castle."
+      },
+      {
+        "day": 3,
+        "title": "Foodie Trail",
+        "summary": "Local favorites",
+        "details": "Bean sprout chicken, curry noodles, tau fu fah."
+      },
+      {
+        "day": 4,
+        "title": "Relax & Shop",
+        "summary": "Markets",
+        "details": "Ipoh night market, souvenir shopping."
+      }
+    ]
+  },
+  {
+    "slug": "3-day-perhentian-islands",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Perhentian Islands",
+    "title": "Perhentian Islands 3-Day Escape",
+    "days": 3,
+    "priceFrom": 310,
+    "hero": "/src/assets/malaysia/perhentian.jpg",
+    "summary": "Crystal-clear waters and snorkeling paradise.",
+    "highlights": [
+      "Snorkeling",
+      "Coral Reefs",
+      "Island BBQ"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Beach",
+        "summary": "Relaxing day",
+        "details": "Chill on Long Beach, sunset BBQ."
+      },
+      {
+        "day": 2,
+        "title": "Snorkeling Trip",
+        "summary": "Underwater wonders",
+        "details": "Snorkeling with turtles, coral reef exploration."
+      },
+      {
+        "day": 3,
+        "title": "Island Vibes",
+        "summary": "Kayaking & farewell",
+        "details": "Kayak around island, enjoy last beach walk."
+      }
+    ]
+  },
+  {
+    "slug": "2-day-johor-legoland-trip",
+    "region": "southeast-asia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "title": "Johor 2-Day Legoland & City Trip",
+    "days": 2,
+    "priceFrom": 200,
+    "hero": "/src/assets/malaysia/johor-Bahru.jpg",
+    "summary": "Family fun at Legoland and Johor Bahru highlights.",
+    "highlights": [
+      "Legoland Malaysia",
+      "Sultan Abu Bakar Mosque",
+      "City Square"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Legoland Adventure",
+        "summary": "Theme park day",
+        "details": "Enjoy full-day rides and attractions at Legoland."
+      },
+      {
+        "day": 2,
+        "title": "City Tour",
+        "summary": "Mosque & markets",
+        "details": "Sultan Abu Bakar Mosque, JB City Square shopping."
+      }
+    ]
+  },
+  {
+    "slug": "3-day-singapore-city-highlights",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "Singapore 3-Day City Highlights",
+    "days": 3,
+    "priceFrom": 350,
+    "hero": "/src/assets/singapore/singapore-city.jpg",
+    "summary": "Discover Singapore\u2019s top attractions in a compact 3-day tour.",
+    "highlights": [
+      "Marina Bay Sands",
+      "Gardens by the Bay",
+      "Singapore Flyer"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Marina Bay & Gardens",
+        "summary": "Explore the iconic skyline.",
+        "details": "Visit Marina Bay Sands, Gardens by the Bay, Supertree Grove."
+      },
+      {
+        "day": 2,
+        "title": "Sentosa Adventure",
+        "summary": "Fun day at Sentosa Island.",
+        "details": "SEA Aquarium, Adventure Cove, Skyline Luge."
+      },
+      {
+        "day": 3,
+        "title": "Cultural Heritage",
+        "summary": "Experience old Singapore.",
+        "details": "Chinatown, Little India, Kampong Glam."
+      }
+    ]
+  },
+  {
+    "slug": "4-day-family-singapore",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "4-Day Family Fun in Singapore",
+    "days": 4,
+    "priceFrom": 420,
+    "hero": "/src/assets/singapore/singapore-zoo.jpg",
+    "summary": "Perfect family-friendly attractions in 4 days.",
+    "highlights": [
+      "Singapore Zoo",
+      "River Safari",
+      "Night Safari"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Zoo & River Safari",
+        "summary": "Wildlife encounters.",
+        "details": "Visit Singapore Zoo and River Safari."
+      },
+      {
+        "day": 2,
+        "title": "Sentosa Theme Parks",
+        "summary": "Family fun all day.",
+        "details": "Universal Studios Singapore."
+      },
+      {
+        "day": 3,
+        "title": "Science & Nature",
+        "summary": "Learn and explore.",
+        "details": "Science Centre Singapore, Jurong Bird Park."
+      },
+      {
+        "day": 4,
+        "title": "Relaxation",
+        "summary": "Wind down in the city.",
+        "details": "Shopping on Orchard Road."
+      }
+    ]
+  },
+  {
+    "slug": "2-day-business-stopover",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "2-Day Business Stopover in Singapore",
+    "days": 2,
+    "priceFrom": 250,
+    "hero": "/src/assets/singapore/clarke-quay.jpg",
+    "summary": "Quick city highlights for business travelers.",
+    "highlights": [
+      "Marina Bay Sands",
+      "Clarke Quay",
+      "Singapore River Cruise"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Business Bay",
+        "summary": "Modern cityscape.",
+        "details": "Visit Marina Bay Sands, Merlion Park."
+      },
+      {
+        "day": 2,
+        "title": "Relax & Network",
+        "summary": "Mix leisure with networking.",
+        "details": "Clarke Quay nightlife, Boat Quay dining."
+      }
+    ]
+  },
+  {
+    "slug": "5-day-cultural-singapore",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "5-Day Cultural Immersion in Singapore",
+    "days": 5,
+    "priceFrom": 480,
+    "hero": "/src/assets/singapore/little-india.jpg",
+    "summary": "Explore diverse cultural neighborhoods.",
+    "highlights": [
+      "Chinatown",
+      "Little India",
+      "Kampong Glam"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Chinatown",
+        "summary": "Heritage and food.",
+        "details": "Buddha Tooth Relic Temple, Maxwell Hawker Centre."
+      },
+      {
+        "day": 2,
+        "title": "Little India",
+        "summary": "Colors and traditions.",
+        "details": "Sri Veeramakaliamman Temple, Tekka Centre."
+      },
+      {
+        "day": 3,
+        "title": "Kampong Glam",
+        "summary": "Malay-Arab influence.",
+        "details": "Sultan Mosque, Haji Lane."
+      },
+      {
+        "day": 4,
+        "title": "Peranakan Culture",
+        "summary": "Blend of traditions.",
+        "details": "Katong/Joo Chiat shophouses."
+      },
+      {
+        "day": 5,
+        "title": "Foodie Tour",
+        "summary": "Taste it all.",
+        "details": "Lau Pa Sat, Satay Street."
+      }
+    ]
+  },
+  {
+    "slug": "3-day-romantic-singapore",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "3-Day Romantic Getaway in Singapore",
+    "days": 3,
+    "priceFrom": 390,
+    "hero": "/src/assets/singapore/singapore-flyer.jpg",
+    "summary": "A romantic experience for couples.",
+    "highlights": [
+      "Skyline Dinner",
+      "Botanic Gardens",
+      "Singapore Flyer"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Romantic Skyline",
+        "summary": "Evening views.",
+        "details": "Dinner at Marina Bay Sands SkyPark."
+      },
+      {
+        "day": 2,
+        "title": "Nature & Strolls",
+        "summary": "Romantic gardens.",
+        "details": "Singapore Botanic Gardens, National Orchid Garden."
+      },
+      {
+        "day": 3,
+        "title": "Fly High",
+        "summary": "Unforgettable views.",
+        "details": "Singapore Flyer sunset ride."
+      }
+    ]
+  },
+  {
+    "slug": "6-day-nature-singapore",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "6-Day Nature & Wildlife Singapore",
+    "days": 6,
+    "priceFrom": 520,
+    "hero": "/src/assets/singapore/bukit-timah.jpg",
+    "summary": "Immerse yourself in Singapore\u2019s green side.",
+    "highlights": [
+      "Pulau Ubin",
+      "MacRitchie Reservoir",
+      "Bukit Timah Nature Reserve"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "MacRitchie Trails",
+        "summary": "Forest walks.",
+        "details": "TreeTop Walk, nature hike."
+      },
+      {
+        "day": 2,
+        "title": "Bukit Timah",
+        "summary": "Biodiversity hotspot.",
+        "details": "Explore tropical rainforest."
+      },
+      {
+        "day": 3,
+        "title": "Pulau Ubin",
+        "summary": "Rustic island life.",
+        "details": "Cycle through kampongs and wetlands."
+      },
+      {
+        "day": 4,
+        "title": "East Coast",
+        "summary": "Relax by the sea.",
+        "details": "East Coast Park cycling and beach."
+      },
+      {
+        "day": 5,
+        "title": "Bird Paradise",
+        "summary": "Avian wonders.",
+        "details": "Jurong Bird Park alternative."
+      },
+      {
+        "day": 6,
+        "title": "Botanic Gardens",
+        "summary": "UNESCO site.",
+        "details": "Leisurely strolls."
+      }
+    ]
+  },
+  {
+    "slug": "3-day-shopping-singapore",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "3-Day Shopping Spree in Singapore",
+    "days": 3,
+    "priceFrom": 400,
+    "hero": "/src/assets/singapore/singapore-shopping.jpg",
+    "summary": "Shop till you drop in Orchard and beyond.",
+    "highlights": [
+      "Orchard Road",
+      "Bugis Street",
+      "VivoCity"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Orchard Road",
+        "summary": "Luxury shopping.",
+        "details": "ION Orchard, Ngee Ann City."
+      },
+      {
+        "day": 2,
+        "title": "Bugis & Haji Lane",
+        "summary": "Trendy shops.",
+        "details": "Bugis Street market, indie shops."
+      },
+      {
+        "day": 3,
+        "title": "Harbourfront & VivoCity",
+        "summary": "Seaside shopping.",
+        "details": "Explore VivoCity, Sentosa Gateway."
+      }
+    ]
+  },
+  {
+    "slug": "4-day-foodie-singapore",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "4-Day Foodie\u2019s Paradise in Singapore",
+    "days": 4,
+    "priceFrom": 450,
+    "hero": "/src/assets/singapore/street-food.jpg",
+    "summary": "Taste the flavors of Singapore.",
+    "highlights": [
+      "Hawker Centres",
+      "Fine Dining",
+      "Street Snacks"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Hawker Delights",
+        "summary": "Affordable eats.",
+        "details": "Maxwell, Lau Pa Sat."
+      },
+      {
+        "day": 2,
+        "title": "Street Snacks",
+        "summary": "Quick bites.",
+        "details": "Old Airport Road, Tiong Bahru."
+      },
+      {
+        "day": 3,
+        "title": "Fine Dining",
+        "summary": "Michelin-starred meals.",
+        "details": "Odette, Burnt Ends."
+      },
+      {
+        "day": 4,
+        "title": "Fusion Food",
+        "summary": "Blend of cultures.",
+        "details": "Peranakan and modern fusion."
+      }
+    ]
+  },
+  {
+    "slug": "7-day-complete-singapore",
+    "region": "southeast-asia",
+    "country": "Singapore",
+    "city": "Singapore",
+    "title": "7-Day Complete Singapore Experience",
+    "days": 7,
+    "priceFrom": 600,
+    "hero": "/src/assets/singapore/sentosa.jpg",
+    "summary": "See everything Singapore has to offer in a week.",
+    "highlights": [
+      "Sentosa",
+      "Marina Bay",
+      "Cultural Quarters"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival",
+        "summary": "Start easy.",
+        "details": "Explore Marina Bay."
+      },
+      {
+        "day": 2,
+        "title": "Gardens & Bay",
+        "summary": "Nature meets modern.",
+        "details": "Gardens by the Bay, Cloud Forest."
+      },
+      {
+        "day": 3,
+        "title": "Sentosa Fun",
+        "summary": "All-day adventure.",
+        "details": "Universal Studios, SEA Aquarium."
+      },
+      {
+        "day": 4,
+        "title": "Culture Tour",
+        "summary": "Local life.",
+        "details": "Chinatown, Little India, Kampong Glam."
+      },
+      {
+        "day": 5,
+        "title": "Nature Escape",
+        "summary": "Parks & walks.",
+        "details": "MacRitchie, Botanic Gardens."
+      },
+      {
+        "day": 6,
+        "title": "Shopping Day",
+        "summary": "Retail therapy.",
+        "details": "Orchard Road, Bugis."
+      },
+      {
+        "day": 7,
+        "title": "Relax & Depart",
+        "summary": "Leisurely day.",
+        "details": "East Coast Park, Marina Bay sunset."
+      }
+    ]
+  },
+  {
+    "slug": "bangkok-4-day-city-highlights",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Bangkok",
+    "title": "Bangkok 4-Day City Highlights",
+    "days": 4,
+    "priceFrom": 350,
+    "hero": "/src/assets/bangkok-highlights.jpg",
+    "summary": "Explore Bangkok's temples, markets, and nightlife in 4 days.",
+    "highlights": [
+      "Grand Palace",
+      "Wat Pho",
+      "Floating Market",
+      "Chao Phraya River Cruise"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Temples",
+        "summary": "Visit Grand Palace and Wat Pho.",
+        "details": "Check in, relax, evening street food tour."
+      },
+      {
+        "day": 2,
+        "title": "Floating Market & Canals",
+        "summary": "Day trip to Damnoen Saduak.",
+        "details": "Explore floating market and canals."
+      },
+      {
+        "day": 3,
+        "title": "Modern Bangkok",
+        "summary": "Sky bars and shopping.",
+        "details": "Visit Siam Square and Asiatique."
+      },
+      {
+        "day": 4,
+        "title": "Departure",
+        "summary": "Final shopping and relaxation.",
+        "details": "Check-out and airport transfer."
+      }
+    ]
+  },
+  {
+    "slug": "chiang-mai-5-day-adventure",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Chiang Mai",
+    "title": "Chiang Mai 5-Day Adventure",
+    "days": 5,
+    "priceFrom": 420,
+    "hero": "/src/assets/chiangmai-adventure.jpg",
+    "summary": "A mix of culture, nature, and adventure in Chiang Mai.",
+    "highlights": [
+      "Doi Suthep Temple",
+      "Elephant Sanctuary",
+      "Night Bazaar",
+      "Zipline Adventure"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Old City",
+        "summary": "Explore Chiang Mai Old City.",
+        "details": "Check in, visit local temples."
+      },
+      {
+        "day": 2,
+        "title": "Doi Suthep & Mountains",
+        "summary": "Mountain temple and view.",
+        "details": "Visit Wat Phra That Doi Suthep."
+      },
+      {
+        "day": 3,
+        "title": "Elephant Sanctuary",
+        "summary": "Day with elephants.",
+        "details": "Feed and bathe elephants ethically."
+      },
+      {
+        "day": 4,
+        "title": "Adventure Day",
+        "summary": "Zipline and outdoor fun.",
+        "details": "Full-day zipline experience."
+      },
+      {
+        "day": 5,
+        "title": "Night Bazaar & Departure",
+        "summary": "Shopping and food.",
+        "details": "Souvenirs at the night market."
+      }
+    ]
+  },
+  {
+    "slug": "phuket-4-day-beach-relaxation",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Phuket",
+    "title": "Phuket 4-Day Beach Relaxation",
+    "days": 4,
+    "priceFrom": 380,
+    "hero": "/src/assets/phuket-beach.jpg",
+    "summary": "Relax on Phuket's stunning beaches with day trips.",
+    "highlights": [
+      "Patong Beach",
+      "Phi Phi Islands",
+      "Big Buddha",
+      "Bangla Road Nightlife"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Patong Beach",
+        "summary": "Relax at the beach.",
+        "details": "Sunset at Patong Beach."
+      },
+      {
+        "day": 2,
+        "title": "Phi Phi Islands",
+        "summary": "Island hopping.",
+        "details": "Snorkeling and boat trip."
+      },
+      {
+        "day": 3,
+        "title": "Cultural Phuket",
+        "summary": "Big Buddha and Old Town.",
+        "details": "Explore Phuket town."
+      },
+      {
+        "day": 4,
+        "title": "Departure",
+        "summary": "Final swim and shopping.",
+        "details": "Check-out and airport transfer."
+      }
+    ]
+  },
+  {
+    "slug": "krabi-3-day-island-hopping",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Krabi",
+    "title": "Krabi 3-Day Island Hopping",
+    "days": 3,
+    "priceFrom": 270,
+    "hero": "/src/assets/krabi-islands.jpg",
+    "summary": "Discover Krabi\u2019s iconic islands in 3 days.",
+    "highlights": [
+      "Railay Beach",
+      "4 Islands Tour",
+      "Emerald Pool",
+      "Hot Springs"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Railay Beach",
+        "summary": "Relax by the cliffs.",
+        "details": "Boat ride to Railay Beach."
+      },
+      {
+        "day": 2,
+        "title": "Island Tour",
+        "summary": "4 Islands tour.",
+        "details": "Snorkeling and island hopping."
+      },
+      {
+        "day": 3,
+        "title": "Nature & Departure",
+        "summary": "Emerald Pool visit.",
+        "details": "Hot springs before departure."
+      }
+    ]
+  },
+  {
+    "slug": "koh-samui-5-day-island-retreat",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Koh Samui",
+    "title": "Koh Samui 5-Day Island Retreat",
+    "days": 5,
+    "priceFrom": 450,
+    "hero": "/src/assets/kohsamui.jpg",
+    "summary": "A relaxing 5-day getaway to Koh Samui.",
+    "highlights": [
+      "Chaweng Beach",
+      "Ang Thong National Park",
+      "Big Buddha Temple",
+      "Fisherman\u2019s Village"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Beach",
+        "summary": "Relax on Chaweng Beach.",
+        "details": "Check in and beach sunset."
+      },
+      {
+        "day": 2,
+        "title": "Island Hopping",
+        "summary": "Ang Thong day trip.",
+        "details": "Kayak and snorkel."
+      },
+      {
+        "day": 3,
+        "title": "Culture & Food",
+        "summary": "Big Buddha visit.",
+        "details": "Explore Fisherman\u2019s Village."
+      },
+      {
+        "day": 4,
+        "title": "Adventure & Spa",
+        "summary": "Waterfalls and spa.",
+        "details": "Visit Na Muang Waterfall."
+      },
+      {
+        "day": 5,
+        "title": "Departure",
+        "summary": "Final swim.",
+        "details": "Airport transfer."
+      }
+    ]
+  },
+  {
+    "slug": "ayutthaya-2-day-historic-tour",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Ayutthaya",
+    "title": "Ayutthaya 2-Day Historic Tour",
+    "days": 2,
+    "priceFrom": 180,
+    "hero": "/src/assets/ayutthaya.jpg",
+    "summary": "Short trip exploring ancient temples of Ayutthaya.",
+    "highlights": [
+      "Wat Mahathat",
+      "Wat Phra Si Sanphet",
+      "Ayutthaya Historical Park"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Temples",
+        "summary": "Explore historic temples.",
+        "details": "Visit Wat Mahathat and Wat Phra Si Sanphet."
+      },
+      {
+        "day": 2,
+        "title": "Historical Park",
+        "summary": "UNESCO site tour.",
+        "details": "Explore Ayutthaya Park before departure."
+      }
+    ]
+  },
+  {
+    "slug": "pattaya-3-day-city-and-beach",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Pattaya",
+    "title": "Pattaya 3-Day City & Beach",
+    "days": 3,
+    "priceFrom": 250,
+    "hero": "/src/assets/pattaya.jpg",
+    "summary": "Mix of nightlife, beaches, and culture in Pattaya.",
+    "highlights": [
+      "Walking Street",
+      "Sanctuary of Truth",
+      "Coral Island"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Nightlife",
+        "summary": "Walking Street fun.",
+        "details": "Explore Pattaya\u2019s nightlife."
+      },
+      {
+        "day": 2,
+        "title": "Island Day",
+        "summary": "Visit Coral Island.",
+        "details": "Snorkeling and sunbathing."
+      },
+      {
+        "day": 3,
+        "title": "Culture & Departure",
+        "summary": "Sanctuary of Truth visit.",
+        "details": "Explore Pattaya temple."
+      }
+    ]
+  },
+  {
+    "slug": "koh-phangan-4-day-full-moon-party",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Koh Phangan",
+    "title": "Koh Phangan 4-Day Full Moon Party",
+    "days": 4,
+    "priceFrom": 300,
+    "hero": "/src/assets/kohphangan.jpg",
+    "summary": "Party and relax in Koh Phangan, home of the Full Moon Party.",
+    "highlights": [
+      "Full Moon Party",
+      "Haad Rin Beach",
+      "Waterfalls",
+      "Yoga Retreat"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Relaxation",
+        "summary": "Beach day.",
+        "details": "Relax at Haad Rin Beach."
+      },
+      {
+        "day": 2,
+        "title": "Full Moon Party",
+        "summary": "Night party.",
+        "details": "Dance all night at the Full Moon Party."
+      },
+      {
+        "day": 3,
+        "title": "Recovery & Nature",
+        "summary": "Explore waterfalls.",
+        "details": "Visit Than Sadet Waterfall."
+      },
+      {
+        "day": 4,
+        "title": "Yoga & Departure",
+        "summary": "Yoga retreat morning.",
+        "details": "Wellness activities before departure."
+      }
+    ]
+  },
+  {
+    "slug": "hua-hin-3-day-beach-escape",
+    "region": "southeast-asia",
+    "country": "Thailand",
+    "city": "Hua Hin",
+    "title": "Hua Hin 3-Day Beach Escape",
+    "days": 3,
+    "priceFrom": 220,
+    "hero": "/src/assets/huahin.jpg",
+    "summary": "Relaxing getaway to Hua Hin with beaches and markets.",
+    "highlights": [
+      "Hua Hin Beach",
+      "Night Market",
+      "Cicada Market"
+    ],
+    "schedule": [
+      {
+        "day": 1,
+        "title": "Arrival & Beach",
+        "summary": "Relax at the beach.",
+        "details": "Evening at Hua Hin Night Market."
+      },
+      {
+        "day": 2,
+        "title": "Markets & Food",
+        "summary": "Shopping and food tour.",
+        "details": "Visit Cicada Market."
+      },
+      {
+        "day": 3,
+        "title": "Final Relaxation",
+        "summary": "Morning swim.",
+        "details": "Check out and departure."
+      }
     ]
   }
 ]
