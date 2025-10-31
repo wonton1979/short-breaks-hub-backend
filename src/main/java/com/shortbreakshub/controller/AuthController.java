@@ -1,9 +1,6 @@
 package com.shortbreakshub.controller;
 
-import com.shortbreakshub.dto.LoginRequest;
-import com.shortbreakshub.dto.LoginResponse;
-import com.shortbreakshub.dto.MeResponse;
-import com.shortbreakshub.dto.UpdateMeReq;
+import com.shortbreakshub.dto.*;
 import com.shortbreakshub.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -32,8 +29,20 @@ public class AuthController {
 
     @GetMapping("/debug/who")
     public Map<String,Object> who(HttpServletRequest req) {
-        Object id = req.getAttribute("authUserId"); // Long or null
-        return Map.of("userId", id);
+        Object userId = req.getAttribute("authUserId"); // Long or null
+        return Map.of("userId", userId);
+    }
+
+    @PostMapping("/me/renew-token")
+    public ResponseEntity<String> renewToken(HttpServletRequest req) {
+        Long userId = (Long) req.getAttribute("authUserId");
+        if (userId == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        String email = req.getAttribute("email").toString();
+        String displayName = req.getAttribute("displayName").toString();
+        String role = req.getAttribute("role").toString();
+        return ResponseEntity.ok(authService.meRenewToken(new RenewTokenReq(userId, email, displayName, role)));
     }
 
 }
