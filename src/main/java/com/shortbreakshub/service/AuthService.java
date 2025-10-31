@@ -3,6 +3,7 @@ package com.shortbreakshub.service;
 import com.shortbreakshub.dto.LoginRequest;
 import com.shortbreakshub.dto.LoginResponse;
 import com.shortbreakshub.dto.MeResponse;
+import com.shortbreakshub.dto.RenewTokenReq;
 import com.shortbreakshub.respository.UserRepository;
 import com.shortbreakshub.security.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,5 +46,8 @@ public class AuthService {
         return MeResponse.from(user);
     }
 
+    public String meRenewToken(RenewTokenReq req) {
+        return jwt.generateToken(req.userId(),  req.email(), req.displayName(), req.role());
+    }
 
 }

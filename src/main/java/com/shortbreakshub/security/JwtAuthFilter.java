@@ -53,7 +53,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             return;
         }
 
-        System.out.println("JWT filter: authUserId = " + userId);
         filterChain.doFilter(request, response);
     }
 }

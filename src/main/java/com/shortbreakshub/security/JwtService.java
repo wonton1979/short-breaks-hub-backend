@@ -30,7 +30,7 @@ public class JwtService {
         Date exp = new Date(now.getTime() + expiryMs);
 
         return Jwts.builder()
-                .setSubject(String.valueOf(userId)) // "sub" claim
+                .setSubject(String.valueOf(userId))
                 .setIssuedAt(now)
                 .setExpiration(exp)
                 .addClaims(Map.of(

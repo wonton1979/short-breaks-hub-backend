@@ -6,27 +6,19 @@ import lombok.Getter;
 
 @Getter
 @Embeddable
-public class DayPlan {
+public class UserDayPlan {
 
     @Column(name="day_number")
     private int day;
 
-    private String title;
-
-    @Column(length = 500)
-    private String summary;
-
     @Column(length = 2000)
     private String details;
 
-    public DayPlan() {}
+    public UserDayPlan() {}
 
-    public DayPlan(int day, String title, String summary, String details) {
+    public UserDayPlan(int day, String title, String summary, String details) {
         this.day = day;
-        this.title = title;
-        this.summary = summary;
         this.details = details;
     }
 
 }
-

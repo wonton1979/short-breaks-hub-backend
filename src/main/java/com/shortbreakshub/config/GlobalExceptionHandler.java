@@ -123,6 +123,7 @@ public class GlobalExceptionHandler {
                 "Something went wrong — please try again later.",
                 req.getRequestURI()
         );
+        ex.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
     }
 }

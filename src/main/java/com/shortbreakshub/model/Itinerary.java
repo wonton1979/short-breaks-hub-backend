@@ -5,10 +5,14 @@ import jakarta.persistence.*;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.JoinColumn;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "itineraries")
 public class Itinerary {
@@ -73,31 +77,5 @@ public class Itinerary {
         this.highlights = highlights;
         this.dayPlans = dayPlans;
     }
-
-    public Long getId() { return id; }
-    public String getSlug() { return slug; }
-    public String getRegion() { return region; }
-    public String getCountry() { return country; }
-    public String getCity() { return city; }
-    public String getTitle() { return title; }
-    public int getDays() { return days; }
-    public int getPriceFrom() { return priceFrom; }
-    public String getHero() { return hero; }
-    public String getSummary() { return summary; }
-    public List<DayPlan> getDayPlans() { return dayPlans; }
-    public List<String> getHighlights() { return highlights; }
-
-    public void setId(Long id) { this.id = id; }
-    public void setSlug(String slug) { this.slug = slug; }
-    public void setRegion(String region) { this.region = region; }
-    public void setCountry(String country) { this.country = country; }
-    public void setCity(String city) { this.city = city; }
-    public void setTitle(String title) { this.title = title; }
-    public void setDays(int days) { this.days = days; }
-    public void setPriceFrom(int priceFrom) { this.priceFrom = priceFrom; }
-    public void setHero(String hero) { this.hero = hero; }
-    public void setSummary(String summary) { this.summary = summary; }
-    public void setHighlights(List<String> highlights) { this.highlights = highlights; }
-    public void setDayPlans (List<DayPlan> dayPlans) { this.dayPlans = dayPlans; }
 
 }

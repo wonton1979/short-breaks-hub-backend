@@ -22,6 +22,17 @@ public class CloudinaryService {
                .toString();
     }
 
+    public boolean isCloudinaryFileExists(String url) {
+        String filename = url.substring(url.lastIndexOf('/') + 1,url.lastIndexOf("."));
+        try {
+            cloudinary.api().resource(filename, ObjectUtils.emptyMap());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
     public void deleteImage(String url) throws IOException {
         String filename = url.substring(url.lastIndexOf('/') + 1,url.lastIndexOf("."));
         cloudinary.uploader().destroy(filename, ObjectUtils.emptyMap());

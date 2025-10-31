@@ -32,6 +32,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/itineraries/*/comments").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/itineraries/*/comments").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/itineraries/*/comments/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/user-itineraries/upload").permitAll()
                         .anyRequest().authenticated()
                 ).addFilterBefore(JwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();

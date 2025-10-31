@@ -52,8 +52,8 @@ public class UserService {
     public MeResponse updateOwnAvatarById(Long userId, UpdateAvatarReq req) throws IOException {
         var user = repo.findById(userId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found"));
-        if (req.avatarUrl() != null)  {
-            if (!user.getAvatarUrl().isEmpty()){
+        if ((!req.avatarUrl().isBlank()) && cloudinaryService.isCloudinaryFileExists(req.avatarUrl()))  {
+            if (!(user.getAvatarUrl() == null)){
                 cloudinaryService.deleteImage(user.getAvatarUrl());
             }
             user.setAvatarUrl(req.avatarUrl());
