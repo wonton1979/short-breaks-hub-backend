@@ -6,7 +6,7 @@ import com.shortbreakshub.model.Itinerary;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
-import com.shortbreakshub.respository.ItineraryRepository;
+import com.shortbreakshub.repository.ItineraryRepository;
 
 import java.io.InputStream;
 import java.util.List;

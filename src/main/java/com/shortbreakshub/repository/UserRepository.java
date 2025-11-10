@@ -1,4 +1,4 @@
-package com.shortbreakshub.respository;
+package com.shortbreakshub.repository;
 import java.util.Optional;
 
 import com.shortbreakshub.model.User;

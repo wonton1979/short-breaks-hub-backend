@@ -64,7 +64,12 @@ public class User {
     @Setter
     @Getter
     @Column
-    private String avatarUrl;
+    private String avatarUrl = null;
+
+    @Setter
+    @Getter
+    @Column(name = "email_verified",nullable = false)
+    private boolean emailVerified = false;
 
     @PrePersist
     void onCreateDefaults() {
@@ -81,7 +86,6 @@ public class User {
         this.bio = bio;
         this.adults = adults;
         this.children = children;
-        this.avatarUrl = null;
     }
 
 }

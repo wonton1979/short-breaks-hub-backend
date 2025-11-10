@@ -28,11 +28,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/itineraries/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/regions/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.GET,  "/api/auth/verify-email").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/itineraries/*/comments").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/itineraries/*/comments").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/itineraries/*/comments/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/user-itineraries/upload").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/test-mail/html").permitAll()
                         .anyRequest().authenticated()
                 ).addFilterBefore(JwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();

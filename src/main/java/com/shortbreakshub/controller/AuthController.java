@@ -2,6 +2,7 @@ package com.shortbreakshub.controller;
 
 import com.shortbreakshub.dto.*;
 import com.shortbreakshub.service.AuthService;
+import com.shortbreakshub.service.EmailVerificationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
+    private final EmailVerificationService emailVerificationService;
 
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest request) {
@@ -43,6 +45,16 @@ public class AuthController {
         String displayName = req.getAttribute("displayName").toString();
         String role = req.getAttribute("role").toString();
         return ResponseEntity.ok(authService.meRenewToken(new RenewTokenReq(userId, email, displayName, role)));
+    }
+
+    @GetMapping("/verify-email")
+    public ResponseEntity<?> verifyEmail(@RequestParam("token") String token) {
+        boolean ok = emailVerificationService.verify(token);
+        if (ok) {
+            return ResponseEntity.ok(Map.of("message", "Email verified successfully."));
+        } else {
+            return ResponseEntity.badRequest().body(Map.of("error", "Invalid or expired token."));
+        }
     }
 
 }

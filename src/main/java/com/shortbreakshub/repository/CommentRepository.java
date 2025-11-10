@@ -1,4 +1,4 @@
-package com.shortbreakshub.respository;
+package com.shortbreakshub.repository;
 
 import com.shortbreakshub.model.Comment;
 import org.springframework.data.domain.Page;

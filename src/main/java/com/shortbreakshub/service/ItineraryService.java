@@ -1,7 +1,7 @@
 package com.shortbreakshub.service;
 
 import com.shortbreakshub.model.Itinerary;
-import com.shortbreakshub.respository.ItineraryRepository;
+import com.shortbreakshub.repository.ItineraryRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

@@ -2,8 +2,8 @@ package com.shortbreakshub.service;
 
 import com.shortbreakshub.model.UserDayPlan;
 import com.shortbreakshub.model.UserItinerary;
-import com.shortbreakshub.respository.UserItineraryRepository;
-import com.shortbreakshub.respository.UserRepository;
+import com.shortbreakshub.repository.UserItineraryRepository;
+import com.shortbreakshub.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

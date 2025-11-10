@@ -3,14 +3,14 @@ import com.shortbreakshub.dto.MeResponse;
 import com.shortbreakshub.dto.UpdateAvatarReq;
 import com.shortbreakshub.dto.UpdateMeReq;
 import com.shortbreakshub.model.User;
-import com.shortbreakshub.respository.UserRepository;
+import com.shortbreakshub.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
-
+import org.springframework.beans.factory.annotation.Value;
 import java.io.IOException;
 
 @Service
@@ -19,11 +19,19 @@ public class UserService {
     private final BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
     private final HttpServletRequest request;
     private final CloudinaryService cloudinaryService;
+    private final EmailService emailService;
+    private final EmailVerificationService token;
 
-    public UserService(UserRepository repo, HttpServletRequest request, CloudinaryService cloudinaryService) {
+    @Value("${app.public-base-url}")
+    private String publicBaseUrl;
+
+    public UserService(UserRepository repo, HttpServletRequest request, CloudinaryService cloudinaryService,
+                       EmailService emailService, EmailVerificationService token) {
         this.repo = repo;
         this.request = request;
         this.cloudinaryService = cloudinaryService;
+        this.emailService = emailService;
+        this.token = token;
     }
 
     public User register(String email, String password, String displayName, String location, String bio, Integer adults, Integer children) {
@@ -31,7 +39,10 @@ public class UserService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Email Already Exists");
         }
         User u = new User(email, enc.encode(password), displayName,location, bio, adults, children);
-        return repo.save(u);
+        repo.save(u);
+        String confirmLink = publicBaseUrl + "/verify-email?token=" + token.createToken(u).getToken();
+        emailService.sendConfirmationEmail(u.getEmail(),u.getDisplayName(),confirmLink);
+        return u;
     }
 
     @Transactional

@@ -3,11 +3,9 @@ package com.shortbreakshub.service;
 
 import com.shortbreakshub.dto.CommentRes;
 import com.shortbreakshub.model.Comment;
-import com.shortbreakshub.model.Itinerary;
-import com.shortbreakshub.model.User;
-import com.shortbreakshub.respository.CommentRepository;
-import com.shortbreakshub.respository.ItineraryRepository;
-import com.shortbreakshub.respository.UserRepository;
+import com.shortbreakshub.repository.CommentRepository;
+import com.shortbreakshub.repository.ItineraryRepository;
+import com.shortbreakshub.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

@@ -2,9 +2,9 @@ package com.shortbreakshub.service;
 
 import com.shortbreakshub.model.Favorite;
 import com.shortbreakshub.model.Itinerary;
-import com.shortbreakshub.respository.FavoriteRepository;
-import com.shortbreakshub.respository.ItineraryRepository;
-import com.shortbreakshub.respository.UserRepository;
+import com.shortbreakshub.repository.FavoriteRepository;
+import com.shortbreakshub.repository.ItineraryRepository;
+import com.shortbreakshub.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

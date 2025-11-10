@@ -44,9 +44,11 @@ public class UserController {
     public record RegisterRes(Long id, String email, String displayName) {}
 
     @PostMapping("/register")
-    public RegisterRes register(@Valid @RequestBody RegisterReq req) {
-        User u = userService.register(req.email(), req.password(), req.displayName(), req.location(), req.bio(), req.adults(), req.children());
-        return new RegisterRes(u.getId(), u.getEmail(), u.getDisplayName());
+    public ResponseEntity<RegisterRes> register(@Valid @RequestBody RegisterReq req) {
+        User u = userService.register(req.email(), req.password(), req.displayName(),
+                req.location(), req.bio(), req.adults(), req.children());
+        RegisterRes body = new RegisterRes(u.getId(), u.getEmail(), u.getDisplayName());
+        return ResponseEntity.ok(body);
     }
 
     @PostMapping(path = "/me/photo",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

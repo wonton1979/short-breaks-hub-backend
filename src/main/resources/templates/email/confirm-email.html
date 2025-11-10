@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="x-apple-disable-message-reformatting">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <title>Confirm your email</title>
+        <style>
+            @media (prefers-color-scheme: dark) {
+                .bg { background: #0f1115 !important; }
+                .card { background: #1a1d24 !important; color: #e6e8ee !important; }
+                .muted { color: #aeb3bd !important; }
+            }
+        </style>
+    </head>
+    <body class="bg" style="margin:0; padding:0; background:#f4f6fb;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td align="center" style="padding:24px;">
+                    <!-- email card -->
+                    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
+                           class="card"
+                           style="width:600px; max-width:100%; background:#ffffff; border-radius:10px; overflow:hidden; font-family:Arial, Helvetica, sans-serif; color:#222;">
+
+                        <!-- Header -->
+                        <tr>
+                            <td style="background:#ffffff; padding:0 15px">
+                                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                    <tr>
+                                        <!-- Logo -->
+                                        <td align="left" style="vertical-align:middle; width:120px;">
+                                            <img src="https://res.cloudinary.com/wonton79/image/upload/v1726235501/logo-icon_v1whpp.png"
+                                                 alt="Short Break Hub"
+                                                 width="120"
+                                                 style="display:block; border:0; outline:none; text-decoration:none;">
+                                        </td>
+
+                                        <!-- Slogan -->
+                                        <td align="left" style="vertical-align:middle; padding-left:50px;">
+                                          <span style="font-family: 'Pacifico', cursive; font-size:22px;
+                                                       line-height:1.3; color:#333333; font-weight:200;">
+                                            Plan Your Perfect Short Escape
+                                          </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <img src="https://res.cloudinary.com/wonton79/image/upload/v1762635712/email-hero_gwo37i.jpg"
+                                     alt="Plan your perfect short break"
+                                     width="600" height="225"
+                                     style="display:block; width:100%; height:auto; border:0;">
+                            </td>
+                        </tr>
+
+                        <!-- body copy -->
+                        <tr>
+                            <td style="padding:28px 28px 8px 28px;">
+                                <h1 style="margin:0 0 12px 0; font-size:22px; line-height:1.3;">Confirm your email</h1>
+                                <p style="margin:0; font-size:15px; line-height:1.6;">
+                                    Hi <strong>{{userName}}</strong>, welcome to <strong>Short Break Hub</strong> — your companion for quick, beautifully planned getaways. Tap the button below to activate your account.
+                                </p>
+                            </td>
+                        </tr>
+
+                        <!-- CTA -->
+                        <tr>
+                            <td align="center" style="padding:20px 28px 24px 28px;">
+                                <a href="{{confirmUrl}}"
+                                   style="background:#ff7b00; color:#ffffff; text-decoration:none; display:inline-block;
+                                  padding:12px 28px; border-radius:6px; font-weight:bold; font-size:15px;">
+                                    Confirm email
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- fallback link -->
+                        <tr>
+                            <td style="padding:0 28px 24px 28px;">
+                                <p class="muted" style="margin:0; font-size:12px; line-height:1.6; color:#6b7280;">
+                                    If the button doesn’t work, copy and paste this URL into your browser:<br>
+                                    <a href="{{confirmUrl}}" style="color:#2563eb; word-break:break-all;">{{confirmUrl}}</a>
+                                </p>
+                            </td>
+                        </tr>
+
+                        <!-- footer -->
+                        <tr>
+                            <td style="padding:18px 28px 28px 28px;">
+                                <p class="muted" style="margin:0; font-size:12px; line-height:1.6; color:#9aa1ad;">
+                                    Sent via Amazon SES · © Short Break Hub
+                                </p>
+                                <p class="muted" style="margin:6px 0 0 0; font-size:12px; line-height:1.6; color:#9aa1ad;">
+                                    You’re receiving this because someone signed up with this address. If this wasn’t you, you can ignore this email.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- /email card -->
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+
