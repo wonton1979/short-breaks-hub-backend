@@ -11,7 +11,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -27,9 +26,9 @@ public class CommentController {
     }
 
     @PostMapping
-    public ResponseEntity<Map<String,String>> addNewComment(@PathVariable Long itineraryId,
-                                                            @Valid @RequestBody CreateCommentReq req,
-                                                            HttpServletRequest request) {
+    public ResponseEntity<Map<String,String>> addOrUpdateComment(@PathVariable Long itineraryId,
+                                                                 @Valid @RequestBody CreateCommentReq req,
+                                                                 HttpServletRequest request) {
         Long userId = (Long) request.getAttribute("authUserId");
         if (userId == null) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         commentService.addOrUpdate(userId, itineraryId, req.body(), req.rating());

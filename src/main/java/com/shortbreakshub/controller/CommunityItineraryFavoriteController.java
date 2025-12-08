@@ -1,6 +1,7 @@
 package com.shortbreakshub.controller;
+
 import com.shortbreakshub.model.Itinerary;
-import com.shortbreakshub.service.BuildInItineraryFavoriteService;
+import com.shortbreakshub.service.CommunityItineraryFavoriteService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,19 +12,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-// com.shortbreakshub.controller.FavoriteController
+
 @RestController
-@RequestMapping("/api/itineraries")
-public class FavoriteController {
-    private final BuildInItineraryFavoriteService buildInItineraryFavoriteService;
-    public FavoriteController(BuildInItineraryFavoriteService s) { this.buildInItineraryFavoriteService = s; }
+@RequestMapping("/api/community-itineraries")
+public class CommunityItineraryFavoriteController {
+    private final CommunityItineraryFavoriteService communityItineraryFavoriteService;
+    public CommunityItineraryFavoriteController(CommunityItineraryFavoriteService s)
+    { this.communityItineraryFavoriteService = s; }
 
     @PostMapping("/{itineraryId}/favorite")
     public ResponseEntity<Void> favorite(@PathVariable Long itineraryId,
                                          HttpServletRequest req) {
         Long userId = (Long) req.getAttribute("authUserId");
         if (userId == null) return ResponseEntity.status(401).build();
-        buildInItineraryFavoriteService.addFavorite(userId, itineraryId);
+        communityItineraryFavoriteService.addFavorite(userId, itineraryId);
         return ResponseEntity.ok().build();
     }
 
@@ -32,31 +34,31 @@ public class FavoriteController {
                                            HttpServletRequest req) {
         Long userId = (Long) req.getAttribute("authUserId");
         if (userId == null) return ResponseEntity.status(401).build();
-        buildInItineraryFavoriteService.removeFavorite(userId, itineraryId);
+        communityItineraryFavoriteService.removeFavorite(userId, itineraryId);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{itineraryId}/favorites/count")
     public Map<String,Long> count(@PathVariable Long itineraryId) {
-        return Map.of("count", buildInItineraryFavoriteService.countItineraryFavorites(itineraryId));
+        return Map.of("count", communityItineraryFavoriteService.countItineraryFavorites(itineraryId));
     }
 
     @GetMapping("/{itineraryId}/favorites/me")
     public Map<String,Boolean> mine(@PathVariable Long itineraryId,
                                     HttpServletRequest req) {
         Long userId = (Long) req.getAttribute("authUserId");
-        boolean liked = (userId != null) && buildInItineraryFavoriteService.isFavorite(userId, itineraryId);
+        boolean liked = (userId != null) && communityItineraryFavoriteService.isFavorite(userId, itineraryId);
         return Map.of("liked", liked);
     }
 
     @GetMapping("/me/favorites")
     public ResponseEntity <Page<Itinerary>> myFavorites(
-            @PageableDefault(size = 12,sort = "createdAt", direction = Sort.Direction.DESC)  Pageable pageable,
+            @PageableDefault(size = 12,sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest req
     ) {
         Long userId = (Long) req.getAttribute("authUserId");
         if (userId == null) return ResponseEntity.status(401).build();
-        return ResponseEntity.ok(buildInItineraryFavoriteService.getUserFavorites(userId, pageable));
+        return ResponseEntity.ok(communityItineraryFavoriteService.getUserFavorites(userId, pageable));
     }
 }
 

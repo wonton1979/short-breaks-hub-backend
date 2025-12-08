@@ -1,11 +1,15 @@
 package com.shortbreakshub.service;
 
-import com.shortbreakshub.model.UserDayPlan;
-import com.shortbreakshub.model.UserItinerary;
-import com.shortbreakshub.repository.UserItineraryRepository;
+import com.shortbreakshub.dto.UserItineraryRes;
+import com.shortbreakshub.model.*;
+import com.shortbreakshub.repository.CommunityItineraryRepository;
 import com.shortbreakshub.repository.UserRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -13,32 +17,51 @@ import java.util.List;
 public class UserItineraryService {
 
     private final UserRepository userRepo;
-    private final UserItineraryRepository userItineraryRepo;
+    private final CommunityItineraryRepository userItineraryRepo;
 
-    public UserItineraryService(UserRepository userRepo, UserItineraryRepository userItineraryRepo) {
+    public UserItineraryService(UserRepository userRepo, CommunityItineraryRepository userItineraryRepo) {
         this.userRepo = userRepo;
         this.userItineraryRepo = userItineraryRepo;
     }
 
+    public UserItineraryRes getBySlug(String slug) {
+        return userItineraryRepo.findBySlug(slug).map(UserItineraryRes::toRes)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"User Itinerary not found"));
+    }
+
+    @Transactional(readOnly = true)
+    public Page<UserItineraryRes> getUserItineraryMe(Long userId, Pageable pageable) {
+        Page<CommunityItinerary> userItinerariesMe = userItineraryRepo.findUserItinerariesByUser_Id(userId, pageable);
+        return userItinerariesMe.map(UserItineraryRes::toRes);
+    }
+
     @Transactional
-    public void addOrUpdate(Long userId, String slug, String country,
-                            String city, int days, String title,
-                            String summary,String coverPhoto, String highlights,
-                            String visibility, Float estimatedCost, List<UserDayPlan> dayPlans) {
-        UserItinerary userItinerary = new UserItinerary();
-        userItinerary.setUser(userRepo.getReferenceById(userId));
-        userItinerary.setSlug(slug);
-        userItinerary.setCountry(country);
-        userItinerary.setCity(city);
-        userItinerary.setDays(days);
-        userItinerary.setTitle(title);
-        userItinerary.setSummary(summary);
-        userItinerary.setCoverPhoto(coverPhoto);
-        userItinerary.setHighlights(highlights);
-        userItinerary.setVisibility(visibility);
-        userItinerary.setEstimatedCost(estimatedCost);
-        userItinerary.setDayPlans(dayPlans);
-        userItineraryRepo.save(userItinerary);
+    public void publishOrUpdate(Long userId, String slug, String country,
+                                Region region, int days, String title,
+                                String summary, String coverPhoto, String highlights,
+                                Visibility visibility, Float estimatedCost, List<UserDayPlan> dayPlans) {
+        CommunityItinerary communityItinerary = new CommunityItinerary();
+        communityItinerary.setUser(userRepo.getReferenceById(userId));
+        communityItinerary.setSlug(slug);
+        communityItinerary.setCountry(country);
+        communityItinerary.setRegion(region);
+        communityItinerary.setDays(days);
+        communityItinerary.setTitle(title);
+        communityItinerary.setSummary(summary);
+        communityItinerary.setCoverPhoto(coverPhoto);
+        communityItinerary.setHighlights(highlights);
+        communityItinerary.setVisibility(visibility);
+        communityItinerary.setEstimatedCost(estimatedCost);
+        communityItinerary.setDayPlans(dayPlans);
+        userItineraryRepo.save(communityItinerary);
+    }
+
+    public List<String> getDistinctCountryByRegion(String region) {
+        return userItineraryRepo.findDistinctCountryByRegion(region);
+    }
+
+    public List<UserItineraryRes> getByRegion(String region) {
+        return userItineraryRepo.findItinerariesByRegion(region).stream().map(UserItineraryRes::toRes).toList();
     }
 
 }

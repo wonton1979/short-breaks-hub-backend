@@ -7,11 +7,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "favorites", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id","itinerary_id"}))
+@Table(name = "community_itinerary_favorites", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id","user_itinerary_id"}))
 @RequiredArgsConstructor
-public class Favorite {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter
+public class CommunityItineraryFavorite {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private Long id;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -20,9 +22,9 @@ public class Favorite {
     private User user;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "itinerary_id")
+    @JoinColumn(name = "user_itinerary_id")
     @Getter @Setter
-    private Itinerary itinerary;
+    private CommunityItinerary communityItinerary;
 
     @Column(nullable = false, updatable = false)
     @Getter @Setter

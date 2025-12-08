@@ -1,6 +1,6 @@
 package com.shortbreakshub.dto;
 
-import com.shortbreakshub.model.Comment;
+import com.shortbreakshub.model.BuildInItineraryComment;
 import java.time.Instant;
 
 public record CommentRes(
@@ -13,7 +13,7 @@ public record CommentRes(
         Integer rating,
         Instant createdAt
 ) {
-    public static CommentRes toRes(Comment c) {
+    public static CommentRes toRes(BuildInItineraryComment c) {
         var u = c.getUser();
         return new CommentRes(
                 c.getId(),
