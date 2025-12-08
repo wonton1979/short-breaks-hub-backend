@@ -2,7 +2,7 @@ package com.shortbreakshub.service;
 
 
 import com.shortbreakshub.dto.CommentRes;
-import com.shortbreakshub.model.Comment;
+import com.shortbreakshub.model.BuildInItineraryComment;
 import com.shortbreakshub.repository.CommentRepository;
 import com.shortbreakshub.repository.ItineraryRepository;
 import com.shortbreakshub.repository.UserRepository;
@@ -31,9 +31,9 @@ public class CommentService {
 
     @Transactional
     public void addOrUpdate(Long userId, Long itineraryId, String body, Integer rating) {
-        Optional<Comment> existing = commentRepo.findByUserIdAndItineraryId(userId, itineraryId);
+        Optional<BuildInItineraryComment> existing = commentRepo.findByUserIdAndItineraryId(userId, itineraryId);
 
-        Comment c = existing.orElseGet(Comment::new);
+        BuildInItineraryComment c = existing.orElseGet(BuildInItineraryComment::new);
         c.setUser(userRepo.getReferenceById(userId));
         c.setItinerary(itineraryRepo.getReferenceById(itineraryId));
         c.setBody(body);
@@ -50,7 +50,7 @@ public class CommentService {
     @Transactional
     public void deleteComment(Long itineraryId, Long userId) {
         long commentId;
-        Optional<Comment> existing = commentRepo.findByUserIdAndItineraryId(userId, itineraryId);
+        Optional<BuildInItineraryComment> existing = commentRepo.findByUserIdAndItineraryId(userId, itineraryId);
         if (existing.isPresent()) {
             commentId = existing.get().getId();
             commentRepo.deleteById(commentId);
@@ -63,11 +63,8 @@ public class CommentService {
 
     public Map<String,Object> hasUserCommented(Long itineraryId, Long userId) {
         var existing = commentRepo.findByUserIdAndItineraryId(userId,itineraryId);
-        if (existing.isPresent()) {
-            return Map.of("hasUserCommented",true,"comment",existing.get().getBody(),
-                    "rating",(existing.get().getRating() == null) ? "No Rating" : existing.get().getRating());
-        }
-        return Map.of("hasUserCommented",false);
+        return existing.<Map<String, Object>>map(buildInItineraryComment -> Map.of("hasUserCommented", true, "comment", buildInItineraryComment.getBody(),
+                "rating", (buildInItineraryComment.getRating() == null) ? "No Rating" : buildInItineraryComment.getRating())).orElseGet(() -> Map.of("hasUserCommented", false));
     }
 }
 

@@ -19,9 +19,6 @@ public class ItineraryService {
         this.repo = repo;
     }
 
-    public List<Itinerary> getAll() {
-        return repo.findAll();
-    }
 
     public Optional<Itinerary> getBySlug(String slug) {
         return repo.findBySlug(slug);

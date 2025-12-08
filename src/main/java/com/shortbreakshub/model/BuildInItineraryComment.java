@@ -15,8 +15,8 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Getter
 @Entity
 @Setter
-@Table(name = "comments")
-public class Comment {
+@Table(name = "comments",uniqueConstraints = @UniqueConstraint(columnNames = {"user_id","itinerary_id"}))
+public class BuildInItineraryComment {
 
     @Id @GeneratedValue(strategy = IDENTITY)
     private Long id;

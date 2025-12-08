@@ -26,17 +26,54 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/api/itineraries/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/regions/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.GET,  "/api/auth/verify-email").permitAll()
+
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/itineraries/*/comments").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/api/itineraries/*/comments").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/itineraries/*/comments/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/user-itineraries/upload").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/test-mail/html").permitAll()
+
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/api/itineraries/**",
+                                "/api/regions/**",
+                                "/api/auth/**",
+                                "/api/community-itineraries/**"
+                        ).permitAll()
+
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/api/auth/register",
+                                "/api/auth/login",
+                                "/api/auth/verify-email",
+                                "/api/auth/me/photo",
+                                "/api/auth/me/renew-token",
+                                "/api/community-itineraries/upload-itinerary-cover-photo",
+                                "/api/community-itineraries/publish-itinerary",
+                                "/api/itineraries/*/favorite",
+                                "/api/itineraries/*/comments",
+                                "/api/community-itineraries/*/favorite",
+                                "/api/community-itineraries/*/comments",
+                                "/api/community-itineraries/*/question-threads",
+                                "/api/community-itineraries/*/question-threads/*/messages",
+                                "/api/community-itineraries/draft/save-draft",
+                                "/api/community-itineraries/draft/upload-draft-cover-photo",
+                                "/api/community-itineraries/draft/update-draft-cover-photo"
+
+                        ).permitAll()
+
+                        .requestMatchers(
+                                HttpMethod.PUT,
+                                "/api/auth/me/photo",
+                                "/api/auth/me",
+                                "/api/community-itineraries/draft/**"
+
+                        ).permitAll()
+
+                        .requestMatchers(
+                                HttpMethod.DELETE,
+                                "/api/itineraries/*/favorite",
+                                "/api/itineraries/*/comments",
+                                "/api/community-itineraries/*/favorite",
+                                "/api/community-itineraries/*/comments",
+                                "/api/community-itineraries/draft/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 ).addFilterBefore(JwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();

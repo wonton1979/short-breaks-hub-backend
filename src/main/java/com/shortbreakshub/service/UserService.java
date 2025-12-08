@@ -4,7 +4,6 @@ import com.shortbreakshub.dto.UpdateAvatarReq;
 import com.shortbreakshub.dto.UpdateMeReq;
 import com.shortbreakshub.model.User;
 import com.shortbreakshub.repository.UserRepository;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,6 @@ import java.io.IOException;
 public class UserService {
     private final UserRepository repo;
     private final BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
-    private final HttpServletRequest request;
     private final CloudinaryService cloudinaryService;
     private final EmailService emailService;
     private final EmailVerificationService token;
@@ -25,10 +23,9 @@ public class UserService {
     @Value("${app.public-base-url}")
     private String publicBaseUrl;
 
-    public UserService(UserRepository repo, HttpServletRequest request, CloudinaryService cloudinaryService,
+    public UserService(UserRepository repo, CloudinaryService cloudinaryService,
                        EmailService emailService, EmailVerificationService token) {
         this.repo = repo;
-        this.request = request;
         this.cloudinaryService = cloudinaryService;
         this.emailService = emailService;
         this.token = token;
@@ -43,6 +40,12 @@ public class UserService {
         String confirmLink = publicBaseUrl + "/verify-email?token=" + token.createToken(u).getToken();
         emailService.sendConfirmationEmail(u.getEmail(),u.getDisplayName(),confirmLink);
         return u;
+    }
+
+    public User getUserById(Long id) {
+        return repo.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found")
+        );
     }
 
     @Transactional
@@ -72,4 +75,6 @@ public class UserService {
         repo.save(user);
         return MeResponse.from(user);
     }
+
+
 }

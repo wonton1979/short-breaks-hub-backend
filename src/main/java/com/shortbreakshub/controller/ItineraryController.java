@@ -31,7 +31,7 @@ public class ItineraryController {
     }
 
     @GetMapping("/region/{region}")
-    public ResponseEntity<Object> getfindDistinctCountryByRegion(@PathVariable String region) {
+    public ResponseEntity<Object> getFindDistinctCountryByRegion(@PathVariable String region) {
         List<String> result = service.getDistinctCountryByRegion(region);
         if (result.isEmpty()) {
             Map<String, Object> body = Map.of(

@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.persistence.ElementCollection;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,10 +19,10 @@ import static jakarta.persistence.FetchType.LAZY;
 @Setter
 @Getter
 @Entity
-public class UserItinerary {
+public class CommunityItinerary {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @NotBlank
     @Column(nullable = false, unique = true)
@@ -31,9 +32,10 @@ public class UserItinerary {
     @Column(nullable = false)
     private String country;
 
-    @NotBlank
+    @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String city;
+    private Region region;
 
     @Column(nullable = false)
     @Min(1) @Max(7)
@@ -44,7 +46,7 @@ public class UserItinerary {
     private String title;
 
     @NotBlank
-    @Column(nullable = false)
+    @Column(nullable = false,columnDefinition = "TEXT")
     private String summary;
 
     @NotBlank
@@ -58,22 +60,23 @@ public class UserItinerary {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(nullable = true)
+    @Column()
     private String highlights;
 
     @Column(nullable = false)
     private Instant updatedAt;
 
     @Column(nullable = false)
-    private String visibility;
+    @Enumerated(EnumType.STRING)
+    private Visibility visibility;
 
-    @Column(nullable = true)
+    @Column()
     private Float estimatedCost;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_itinerary_schedule",joinColumns = @JoinColumn(name = "user_itinerary_id"))
+    @CollectionTable(name = "community_itinerary_schedule",joinColumns = @JoinColumn(name = "community_itinerary_id"))
     @AttributeOverrides({
-            @AttributeOverride(name = "details", column = @Column(name = "day_details"))
+            @AttributeOverride(name = "details", column = @Column(name = "day_details",columnDefinition = "TEXT") )
     })
     @JsonProperty("schedule")
     private List<UserDayPlan> dayPlans = new ArrayList<>();
@@ -85,15 +88,15 @@ public class UserItinerary {
         updatedAt = now;
     }
 
-    public UserItinerary() {}
+    public CommunityItinerary() {}
 
-    public UserItinerary(String slug, String country, String city,
-                         int days, String title, String summary, String coverPhoto,
-                         Instant createdAt, User user, String highlights, Instant updatedAt,
-                         String visibility, Float estimatedCost, List<UserDayPlan> dayPlans) {
+    public CommunityItinerary(String slug, String country, Region region,
+                              int days, String title, String summary, String coverPhoto,
+                              Instant createdAt, User user, String highlights, Instant updatedAt,
+                              Visibility visibility, Float estimatedCost, List<UserDayPlan> dayPlans) {
         this.slug = slug;
         this.country = country;
-        this.city = city;
+        this.region = region;
         this.days = days;
         this.title = title;
         this.summary = summary;
@@ -106,5 +109,4 @@ public class UserItinerary {
         this.estimatedCost = estimatedCost;
         this.dayPlans = dayPlans;
     }
-
 }
