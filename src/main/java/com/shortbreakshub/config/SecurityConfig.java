@@ -54,7 +54,8 @@ public class SecurityConfig {
                                 "/api/community-itineraries/*/question-threads/*/messages",
                                 "/api/community-itineraries/draft/save-draft",
                                 "/api/community-itineraries/draft/upload-draft-cover-photo",
-                                "/api/community-itineraries/draft/update-draft-cover-photo"
+                                "/api/community-itineraries/draft/update-draft-cover-photo",
+                                "api/contact"
 
                         ).permitAll()
 
