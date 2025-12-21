@@ -53,4 +53,40 @@ public class SesEmailService {
 
         sesClient.sendEmail(request);
     }
+
+    public void sendPasswordResetEmail(String toEmail, String resetLink) {
+        String subject = "Reset your Short Break Hub password";
+
+        String bodyText = """
+            We received a request to reset your Short Break Hub password.
+
+            Click the link below to choose a new password (this link is valid for 30 minutes):
+
+            %s
+
+            If you didn't request a password reset, you can safely ignore this email.
+            """.formatted(resetLink);
+
+        SendEmailRequest request = SendEmailRequest.builder()
+                .source(fromEmail)
+                .destination(Destination.builder()
+                        .toAddresses(toEmail)
+                        .build())
+                .message(Message.builder()
+                        .subject(Content.builder()
+                                .data(subject)
+                                .charset("UTF-8")
+                                .build())
+                        .body(Body.builder()
+                                .text(Content.builder()
+                                        .data(bodyText)
+                                        .charset("UTF-8")
+                                        .build())
+                                .build())
+                        .build())
+                .build();
+
+        sesClient.sendEmail(request);
+    }
+
 }

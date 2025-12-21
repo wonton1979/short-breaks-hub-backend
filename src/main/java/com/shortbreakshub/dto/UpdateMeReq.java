@@ -1,5 +1,6 @@
 package com.shortbreakshub.dto;
 
+import com.shortbreakshub.model.Currency;
 import jakarta.validation.constraints.*;
 
 public record UpdateMeReq(
@@ -8,7 +9,8 @@ public record UpdateMeReq(
         @Min(1)  @Max(12) Integer adults,
         @Min(0)  @Max(12) Integer children,
         String location,
-        @Size(max = 500) String bio
+        @Size(max = 500) String bio,
+        Currency currency
 ) {
     @AssertTrue(message = "Group size cannot exceed 16")
     public boolean isTotalOk() {

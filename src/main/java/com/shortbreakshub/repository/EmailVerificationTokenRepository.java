@@ -10,7 +10,11 @@ public interface EmailVerificationTokenRepository
 
     Optional<EmailVerificationToken> findByToken(String token);
 
-    long deleteByUser(User user);
+    void deleteAllByUser_Id(Long user_id);
 
-    long deleteByExpiresAtBefore(Instant cutoff);
+    Optional<EmailVerificationToken> findTopByUser_IdOrderByExpiresAtDesc(Long userId);
+
+    long countByUser_IdAndExpiresAtAfter(Long userId, Instant time);
+
+
 }

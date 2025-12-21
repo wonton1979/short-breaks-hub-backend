@@ -33,7 +33,7 @@ public class Itinerary {
     @Column(nullable = false)
     private String city;
 
-    @Column(nullable = false)
+    @Column(nullable = false,length = 500)
     private String title;
 
     private int days;
@@ -43,7 +43,7 @@ public class Itinerary {
 
     private String hero;
 
-    @Column(length = 1000)
+    @Column(columnDefinition = "TEXT")
     private String summary;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -53,9 +53,9 @@ public class Itinerary {
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "itinerary_schedule",joinColumns = @JoinColumn(name = "itinerary_id"))
     @AttributeOverrides({
-            @AttributeOverride(name = "title", column = @Column(name = "day_title")),
-            @AttributeOverride(name = "summary", column = @Column(name = "day_summary")),
-            @AttributeOverride(name = "details", column = @Column(name = "day_details"))
+            @AttributeOverride(name = "title", column = @Column(name = "day_title",columnDefinition = "TEXT")),
+            @AttributeOverride(name = "summary", column = @Column(name = "day_summary",columnDefinition = "TEXT")),
+            @AttributeOverride(name = "details", column = @Column(name = "day_details",columnDefinition = "TEXT"))
     })
     @JsonProperty("schedule")
     private List<DayPlan> dayPlans = new ArrayList<>();

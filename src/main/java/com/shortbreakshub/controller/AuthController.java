@@ -1,8 +1,11 @@
 package com.shortbreakshub.controller;
 
 import com.shortbreakshub.dto.*;
+import com.shortbreakshub.model.User;
 import com.shortbreakshub.service.AuthService;
 import com.shortbreakshub.service.EmailVerificationService;
+import com.shortbreakshub.service.PasswordResetService;
+import com.shortbreakshub.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +21,8 @@ import java.util.Map;
 public class AuthController {
     private final AuthService authService;
     private final EmailVerificationService emailVerificationService;
+    private final PasswordResetService passwordResetService;
+    private final UserService userService;
 
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest request) {
@@ -57,5 +62,35 @@ public class AuthController {
         }
     }
 
+    @GetMapping("/verify-email-request")
+    public ResponseEntity<?> verifyEmailRequest(HttpServletRequest req) {
+        Long userId = (Long) req.getAttribute("authUserId");
+        if (userId == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        User user = userService.getUserById(userId);
+        authService.resendVerificationEmail(user);
+        return ResponseEntity.ok(Map.of("message", "Email verification email sent."));
+    }
+
+    @PostMapping("/request-password-reset")
+    public ResponseEntity<Map<String,String>> requestPasswordReset(
+            @Valid @RequestBody PasswordResetReq dto
+    ) {
+        passwordResetService.createResetToken(dto.email());
+        return ResponseEntity.ok(Map.of("message","Password reset link has been sent."));
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(
+            @Valid @RequestBody PasswordResetConfirmReq dto
+    ) {
+        try {
+            passwordResetService.resetPassword(dto.token(), dto.newPassword());
+            return ResponseEntity.ok(Map.of("message", "Password reset successfully."));
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));
+        }
+    }
 }
 

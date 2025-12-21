@@ -1,15 +1,11 @@
 package com.shortbreakshub.controller;
 
-import com.shortbreakshub.dto.MeResponse;
-import com.shortbreakshub.dto.UpdateAvatarReq;
-import com.shortbreakshub.dto.UpdateMeReq;
+import com.shortbreakshub.dto.*;
 import com.shortbreakshub.model.User;
 import com.shortbreakshub.service.CloudinaryService;
 import com.shortbreakshub.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -29,19 +25,6 @@ public class UserController {
         this.userService = userService;
         this.cloudinaryService = cloudinaryService;
     }
-
-    public record RegisterReq(
-            @Email @NotBlank String email,
-            @NotBlank String password,
-            @NotBlank String displayName,
-            String location,
-            String bio,
-            Integer adults,
-            Integer children,
-            String avatarUrl
-    ) {}
-
-    public record RegisterRes(Long id, String email, String displayName) {}
 
     @PostMapping("/register")
     public ResponseEntity<RegisterRes> register(@Valid @RequestBody RegisterReq req) {
@@ -84,6 +67,8 @@ public class UserController {
         }
         return ResponseEntity.ok(userService.updateOwnAvatarById(userId, req));
     }
+
+
 
 }
 

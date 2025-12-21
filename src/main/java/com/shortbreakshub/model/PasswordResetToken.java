@@ -2,19 +2,22 @@ package com.shortbreakshub.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.Instant;
-import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "email_verification_tokens", indexes = {
+@Table(name = "password_reset_tokens", indexes = {
         @Index(columnList = "token", unique = true),
         @Index(columnList = "expiresAt"),
         @Index(columnList = "user_id")
 })
-public class EmailVerificationToken {
+public class PasswordResetToken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +33,9 @@ public class EmailVerificationToken {
 
     @Column(nullable = false)
     private Instant expiresAt;
+
+    @Column(nullable = false)
+    private boolean used = false;
 
     @Column
     private Instant consumedAt;

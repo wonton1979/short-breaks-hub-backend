@@ -27,7 +27,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         Long userId = null;
         String email = null;
         String displayName = null;
-        String role = null;
 
         if (auth != null && auth.startsWith("Bearer ")) {
             String token = auth.substring(7);
@@ -35,11 +34,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 userId = jwtService.getUserId(token);
                 email = jwtService.getEmail(token);
                 displayName = jwtService.getDisplayName(token);
-                role = jwtService.getRole(token);
                 request.setAttribute("authUserId", userId);
                 request.setAttribute("email", email);
                 request.setAttribute("displayName", displayName);
-                request.setAttribute("role", role);
             } catch (JwtException ex) {
                 System.out.println("JWT invalid: " + ex.getMessage());
             }

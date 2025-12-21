@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -19,6 +22,17 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
 
+    private static final List<String> HERO_IMAGES = List.of(
+            "https://res.cloudinary.com/wonton79/image/upload/v1765720468/australia-email_wjgfx7.jpg",
+            "https://res.cloudinary.com/wonton79/image/upload/v1762635712/email-hero_gwo37i.jpg",
+            "https://res.cloudinary.com/wonton79/image/upload/v1765720722/france-email_upn0cs.jpg",
+            "https://res.cloudinary.com/wonton79/image/upload/v1765720818/kenya-email_tbkdma.jpg",
+            "https://res.cloudinary.com/wonton79/image/upload/v1765721151/mexico-email_p27t2y.jpg",
+            "https://res.cloudinary.com/wonton79/image/upload/v1765721265/canada-email_chwxli.jpg",
+            "https://res.cloudinary.com/wonton79/image/upload/v1765721436/iceland-email_w8igpt.jpg"
+    );
+
+
     @Value("no-reply@shortbreakhub.com")
     private String from;
 
@@ -26,15 +40,21 @@ public class EmailService {
         this.mailSender = mailSender;
     }
 
+    private String pickRandomHeroImageUrl() {
+        int idx = ThreadLocalRandom.current().nextInt(HERO_IMAGES.size());
+        return HERO_IMAGES.get(idx);
+    }
+
     @Async
     public void sendConfirmationEmail(String to, String userName, String confirmUrl) {
         String html = loadTemplate();
         html = html
                 .replace("{{userName}}", escapeHtml(userName))
-                .replace("{{confirmUrl}}", confirmUrl);
-
+                .replace("{{confirmUrl}}", confirmUrl)
+                .replace("{{heroImageUrl}}", pickRandomHeroImageUrl());
         sendHtml(to, html);
     }
+
 
 
     private void sendHtml(String to, String html) {

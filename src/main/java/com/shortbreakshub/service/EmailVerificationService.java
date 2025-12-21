@@ -16,15 +16,50 @@ import java.util.UUID;
 public class EmailVerificationService {
     private final EmailVerificationTokenRepository tokenRepo;
     private final UserRepository userRepo;
+    private static final long TOKEN_TTL_SECONDS = 3600;
+    private static final long COOLDOWN_SECONDS = 60;
+
 
     public EmailVerificationService(EmailVerificationTokenRepository tokenRepo, UserRepository userRepo) {
         this.tokenRepo = tokenRepo;
         this.userRepo = userRepo;
     }
 
-
+    @Transactional
     public EmailVerificationToken createToken(User user) {
-        tokenRepo.deleteByUser(user);
+
+        var lastTokenOpt =
+                tokenRepo.findTopByUser_IdOrderByExpiresAtDesc(user.getId());
+
+        if (lastTokenOpt.isPresent()) {
+            var lastToken = lastTokenOpt.get();
+
+            if (lastToken.getExpiresAt()
+                    .minusSeconds(TOKEN_TTL_SECONDS)
+                    .isAfter(Instant.now().minusSeconds(COOLDOWN_SECONDS))) {
+
+                throw new ResponseStatusException(
+                        HttpStatus.TOO_MANY_REQUESTS,
+                        "Please wait before requesting another verification email"
+                );
+            }
+        }
+
+        long sentInLast24h =
+                tokenRepo.countByUser_IdAndExpiresAtAfter(
+                        user.getId(),
+                        Instant.now()
+                );
+
+        if (sentInLast24h >= 5) {
+            throw new ResponseStatusException(
+                    HttpStatus.TOO_MANY_REQUESTS,
+                    "Too many verification requests today"
+            );
+        }
+
+
+
         EmailVerificationToken token = new EmailVerificationToken();
         token.setUser(user);
         token.setToken(UUID.randomUUID().toString());
@@ -49,6 +84,8 @@ public class EmailVerificationService {
         token.setConsumedAt(Instant.now());
         userRepo.save(user);
         tokenRepo.save(token);
+
+        tokenRepo.deleteAllByUser_Id(user.getId());
         return true;
     }
 }

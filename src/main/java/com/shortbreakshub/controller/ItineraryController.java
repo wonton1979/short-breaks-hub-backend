@@ -2,6 +2,7 @@ package com.shortbreakshub.controller;
 
 import com.shortbreakshub.model.Itinerary;
 import com.shortbreakshub.service.ItineraryService;
+import org.apache.commons.lang3.text.WordUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -46,7 +47,7 @@ public class ItineraryController {
 
     @GetMapping("/browse/{country}")
     public ResponseEntity<Object> getByCountry(@PathVariable String country) {
-        List<Itinerary> result = service.getByCountry(country.substring(0,1).toUpperCase() + country.substring(1));
+        List<Itinerary> result = service.getByCountry(WordUtils.capitalizeFully(country));
         if (result.isEmpty()) {
             Map<String, Object> body = Map.of(
                     "status", 404,
@@ -79,6 +80,7 @@ public class ItineraryController {
             @RequestParam(required = false) Integer daysMax,
             @PageableDefault(size = 12, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
     ) {
+        System.out.println("q: " + q);
         return service.getAllItinerariesByCustomSearch(q, country, daysMin, daysMax, pageable);
     }
 

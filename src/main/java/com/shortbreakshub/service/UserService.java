@@ -58,6 +58,7 @@ public class UserService {
         if (req.adults() != null)    user.setAdults(req.adults());
         if (req.children() != null)  user.setChildren(req.children());
         if (req.displayName() != null)  user.setDisplayName(req.displayName());
+        if (req.currency() != null)  user.setCurrency(req.currency());
         repo.save(user);
         return MeResponse.from(user);
     }

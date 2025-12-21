@@ -11,12 +11,13 @@ public class DayPlan {
     @Column(name="day_number")
     private int day;
 
+    @Column()
     private String title;
 
-    @Column(length = 500)
+    @Column()
     private String summary;
 
-    @Column(length = 2000)
+    @Column()
     private String details;
 
     public DayPlan() {}

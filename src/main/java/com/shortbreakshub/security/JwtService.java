@@ -25,7 +25,7 @@ public class JwtService {
     }
 
     /** Generate a token with user info inside */
-    public String generateToken(Long userId, String email, String displayName, String role) {
+    public String generateToken(Long userId, String email, String displayName) {
         Date now = new Date();
         Date exp = new Date(now.getTime() + expiryMs);
 
@@ -35,8 +35,7 @@ public class JwtService {
                 .setExpiration(exp)
                 .addClaims(Map.of(
                         "email", email,
-                        "displayName", displayName,
-                        "role", role
+                        "displayName", displayName
                 ))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
@@ -57,10 +56,6 @@ public class JwtService {
 
     public String getEmail(String token) {
         return parse(token).getBody().get("email", String.class);
-    }
-
-    public String getRole(String token) {
-        return parse(token).getBody().get("role", String.class);
     }
 
     public String getDisplayName(String token) {
