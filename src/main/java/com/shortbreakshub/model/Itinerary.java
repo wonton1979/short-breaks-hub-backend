@@ -57,6 +57,7 @@ public class Itinerary {
             @AttributeOverride(name = "summary", column = @Column(name = "day_summary",columnDefinition = "TEXT")),
             @AttributeOverride(name = "details", column = @Column(name = "day_details",columnDefinition = "TEXT"))
     })
+    @OrderBy("day ASC")
     @JsonProperty("schedule")
     private List<DayPlan> dayPlans = new ArrayList<>();
 
