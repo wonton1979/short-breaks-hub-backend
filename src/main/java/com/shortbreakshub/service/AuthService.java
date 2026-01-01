@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RequiredArgsConstructor
 @Service
@@ -27,6 +28,8 @@ public class AuthService {
 
     @Value("${app.public-base-url}")
     private String publicBaseUrl;
+
+
 
     public LoginResponse login(LoginRequest req) {
         var user = users.findByEmail(req.email())
@@ -61,7 +64,12 @@ public class AuthService {
         if (user.isEmailVerified()) {
             throw new IllegalStateException("Email already verified");
         }
-        String confirmLink = publicBaseUrl + "/verify-email?token=" + token.createToken(user).getToken();
+        String confirmLink = UriComponentsBuilder
+                .fromHttpUrl(publicBaseUrl)
+                .path("/api/auth/verify-email")
+                .queryParam("token", token.createToken(user).getToken())
+                .toUriString();
+
         emailService.sendConfirmationEmail(user.getEmail(),user.getDisplayName(),confirmLink);
     }
 

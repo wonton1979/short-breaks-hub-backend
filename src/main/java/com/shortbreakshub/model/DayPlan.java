@@ -3,21 +3,20 @@ package com.shortbreakshub.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Embeddable
 public class DayPlan {
 
     @Column(name="day_number")
     private int day;
 
-    @Column()
     private String title;
 
-    @Column()
     private String summary;
 
-    @Column()
     private String details;
 
     public DayPlan() {}

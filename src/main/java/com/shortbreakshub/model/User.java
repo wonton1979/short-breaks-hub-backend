@@ -52,6 +52,9 @@ public class User {
     @Column(name = "email_verified",nullable = false)
     private boolean emailVerified = false;
 
+    @Column(nullable = false)
+    private String role = "USER";
+
     @PrePersist
     void onCreateDefaults() {
         if (adults == null || adults < 1) adults = 1;
@@ -68,6 +71,5 @@ public class User {
         this.adults = adults;
         this.children = children;
     }
-
 }
 

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import java.io.IOException;
 
 @Service
@@ -37,7 +39,11 @@ public class UserService {
         }
         User u = new User(email, enc.encode(password), displayName,location, bio, adults, children);
         repo.save(u);
-        String confirmLink = publicBaseUrl + "/verify-email?token=" + token.createToken(u).getToken();
+        String confirmLink = UriComponentsBuilder
+                .fromHttpUrl(publicBaseUrl)
+                .path("/api/auth/verify-email")
+                .queryParam("token", token.createToken(u).getToken())
+                .toUriString();
         emailService.sendConfirmationEmail(u.getEmail(),u.getDisplayName(),confirmLink);
         return u;
     }

@@ -1,5 +1,6 @@
 package com.shortbreakshub.controller;
 
+import com.shortbreakshub.dto.ItineraryRes;
 import com.shortbreakshub.model.Itinerary;
 import com.shortbreakshub.service.ItineraryService;
 import org.apache.commons.lang3.text.WordUtils;
@@ -25,10 +26,8 @@ public class ItineraryController {
     }
 
     @GetMapping("/slug/{slug}")
-    public ResponseEntity<Itinerary> getOne(@PathVariable String slug) {
-        return service.getBySlug(slug)
-                .map(ResponseEntity::ok)             // 200 + JSON body
-                .orElseGet(() -> ResponseEntity.notFound().build()); // 404
+    public ResponseEntity<ItineraryRes> getOne(@PathVariable String slug) {
+        return ResponseEntity.ok(service.getBySlug(slug));
     }
 
     @GetMapping("/region/{region}")

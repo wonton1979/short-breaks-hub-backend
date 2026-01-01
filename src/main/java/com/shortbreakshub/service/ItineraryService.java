@@ -1,11 +1,16 @@
 package com.shortbreakshub.service;
 
+import com.shortbreakshub.dto.ItineraryRes;
 import com.shortbreakshub.model.Itinerary;
+import com.shortbreakshub.model.ItineraryPlanningSnapshot;
+import com.shortbreakshub.repository.ItineraryPlanningSnapshotRepository;
 import com.shortbreakshub.repository.ItineraryRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,27 +18,37 @@ import java.util.Optional;
 @Service
 public class ItineraryService {
 
-    private final ItineraryRepository repo;
+    private final ItineraryRepository itineraryRepo;
+    private final ItineraryPlanningSnapshotRepository planningRepo;
 
-    public ItineraryService(ItineraryRepository repo) {
-        this.repo = repo;
+    public ItineraryService(ItineraryRepository itineraryRepo, ItineraryPlanningSnapshotRepository planningRepo) {
+        this.itineraryRepo = itineraryRepo;
+        this.planningRepo = planningRepo;
     }
 
 
-    public Optional<Itinerary> getBySlug(String slug) {
-        return repo.findBySlug(slug);
+    public ItineraryRes getBySlug(String slug) {
+        Itinerary itinerary = itineraryRepo.findBySlug(slug).orElse(null);
+        if (itinerary == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Itinerary Not Found");
+        }
+        ItineraryPlanningSnapshot planning = planningRepo.findByItinerary_Id(itinerary.getId()).orElse(null);
+        if (planning == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Planning Not Found");
+        }
+        return ItineraryRes.toRes(itinerary,planning);
     }
 
     public List<String> getDistinctCountryByRegion(String region) {
-        return repo.findDistinctCountryByRegion(region);
+        return itineraryRepo.findDistinctCountryByRegion(region);
     }
 
     public List<Itinerary> getByCountry(String country) {
-        return repo.findByCountry(country);
+        return itineraryRepo.findByCountry(country);
     }
 
     public List<Itinerary> getByRegion(String region) {
-        return repo.findItineraryEntitiesByRegion(region);
+        return itineraryRepo.findItineraryEntitiesByRegion(region);
     }
 
     @Transactional(readOnly = true)
@@ -42,7 +57,7 @@ public class ItineraryService {
             Integer daysMin, Integer daysMax,
             Pageable pageable
     ) {
-        return repo.findAllItinerariesByCustomSearch(q, country, daysMin, daysMax,pageable);
+        return itineraryRepo.findAllItinerariesByCustomSearch(q, country, daysMin, daysMax,pageable);
     }
 
 }
