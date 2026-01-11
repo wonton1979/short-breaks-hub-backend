@@ -23,4 +23,6 @@ public class SeedItineraryDTO {
     private List<SeedDayDTO> schedule;
 
     private SeedPlanningDTO planning;
+
+    private SeedTransportTipDTO transport;
 }

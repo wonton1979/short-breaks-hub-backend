@@ -3,6 +3,7 @@ package com.shortbreakshub.dto;
 import com.shortbreakshub.model.*;
 
 import java.util.List;
+import java.util.Map;
 
 public record ItineraryRes(
         Long id,
@@ -23,9 +24,15 @@ public record ItineraryRes(
         String worstTimeMonths,
         String worstTimeNote,
         List<String> tips,
-        List<String> withKids
+        List<String> withKids,
+        List<Map<String,String>> airportToCity,
+        List<String> gettingAround,
+        List<Map<String,String>> dayTrips,
+        List<String> practical
 ) {
-    public static ItineraryRes toRes(Itinerary itinerary,ItineraryPlanningSnapshot  planning) {
+    public static ItineraryRes toRes(Itinerary itinerary,
+                                     ItineraryPlanningSnapshot  planning,
+                                     ItineraryTransportTip transportTip) {
 
         return new ItineraryRes(
                 itinerary.getId(),
@@ -46,7 +53,11 @@ public record ItineraryRes(
                 planning.getWorstTimeMonths(),
                 planning.getWorstTimeNote(),
                 planning.getTips(),
-                planning.getWithKids()
+                planning.getWithKids(),
+                transportTip.getArrival(),
+                transportTip.getGettingAround(),
+                transportTip.getDayTrips(),
+                transportTip.getPractical()
         );
     }
 }

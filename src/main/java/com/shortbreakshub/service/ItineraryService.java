@@ -3,8 +3,10 @@ package com.shortbreakshub.service;
 import com.shortbreakshub.dto.ItineraryRes;
 import com.shortbreakshub.model.Itinerary;
 import com.shortbreakshub.model.ItineraryPlanningSnapshot;
+import com.shortbreakshub.model.ItineraryTransportTip;
 import com.shortbreakshub.repository.ItineraryPlanningSnapshotRepository;
 import com.shortbreakshub.repository.ItineraryRepository;
+import com.shortbreakshub.repository.ItineraryTransportTipRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -20,10 +22,14 @@ public class ItineraryService {
 
     private final ItineraryRepository itineraryRepo;
     private final ItineraryPlanningSnapshotRepository planningRepo;
+    private final ItineraryTransportTipRepository transportTipRepo;
 
-    public ItineraryService(ItineraryRepository itineraryRepo, ItineraryPlanningSnapshotRepository planningRepo) {
+    public ItineraryService(ItineraryRepository itineraryRepo,
+                            ItineraryPlanningSnapshotRepository planningRepo,
+                            ItineraryTransportTipRepository transportTipRepo) {
         this.itineraryRepo = itineraryRepo;
         this.planningRepo = planningRepo;
+        this.transportTipRepo = transportTipRepo;
     }
 
 
@@ -36,7 +42,8 @@ public class ItineraryService {
         if (planning == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Planning Not Found");
         }
-        return ItineraryRes.toRes(itinerary,planning);
+        ItineraryTransportTip transportTip = transportTipRepo.findByItinerary_Id(itinerary.getId()).orElse(null);
+        return ItineraryRes.toRes(itinerary,planning,transportTip);
     }
 
     public List<String> getDistinctCountryByRegion(String region) {
